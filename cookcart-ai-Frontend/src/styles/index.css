@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background-alt text-on-surface font-sans antialiased min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-success/20 text-brand-dark;
+  }
+}
+
+@layer components {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .lift-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .lift-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(
+      to right,
+      #f6f7f8 0%,
+      #edeef1 20%,
+      #f6f7f8 40%,
+      #f6f7f8 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  .map-gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(247, 248, 244, 0) 0%,
+      rgba(247, 248, 244, 1) 100%
+    );
+  }
+
+  .custom-checkbox {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #7e775f;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  .custom-checkbox:checked {
+    background-color: #14c15a;
+    border-color: #14c15a;
+  }
+  .custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+  }
+
+  .glass-nav {
+    @apply bg-surface/85 backdrop-blur-xl border-b border-border-light/70;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(120deg, #14c15a, #b7f36b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

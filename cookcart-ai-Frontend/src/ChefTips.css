@@ -1,0 +1,7 @@
+.lower-grid { display:grid; grid-template-columns:1fr .9fr; gap:20px; }
+.chef-tips { border-radius:20px; padding:25px; background:linear-gradient(135deg,#eaffdd,#fff4ce); position:relative; overflow:hidden; margin-bottom:20px; }
+.chef-tips::after { content:'✦'; font-size:130px; position:absolute; right:-15px; bottom:-46px; color:#fff8d7; }
+.chef-tips .eyebrow { color:#608a4b; }.chef-tips h3 { font:23px/1.05 var(--serif); position:relative; z-index:1; }
+.chef-tips ul { padding-left:18px; position:relative; z-index:1; }.chef-tips li { font-size:10px; line-height:1.6; margin:6px 0; color:#506443; }
+.chef-icon { position:absolute; right:19px; top:17px; color:#cba832; font-size:22px; }
+@media(max-width:570px) { .lower-grid { grid-template-columns:1fr; } }

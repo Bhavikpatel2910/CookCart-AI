@@ -1,0 +1,597 @@
+[
+  {
+    "_id": "ING_PANEER",
+    "canonicalName": "Paneer",
+    "aliases": [
+      "Indian cottage cheese",
+      "fresh paneer",
+      "cottage cheese"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_TOMATO",
+    "canonicalName": "Tomato",
+    "aliases": [
+      "tomatoes",
+      "fresh tomato"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BUTTER",
+    "canonicalName": "Butter",
+    "aliases": [
+      "salted butter",
+      "unsalted butter"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CREAM",
+    "canonicalName": "Fresh Cream",
+    "aliases": [
+      "cooking cream",
+      "dairy cream",
+      "fresh dairy cream"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "ml",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_ONION",
+    "canonicalName": "Onion",
+    "aliases": [
+      "onions",
+      "red onion"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_KASURI_METHI",
+    "canonicalName": "Kasuri Methi",
+    "aliases": [
+      "kasoori methi",
+      "dried fenugreek leaves"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CAPSICUM",
+    "canonicalName": "Capsicum",
+    "aliases": [
+      "bell pepper",
+      "green pepper"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_KASHMIRI_CHILLI",
+    "canonicalName": "Kashmiri Chilli Powder",
+    "aliases": [
+      "kashmiri red chilli",
+      "kashmiri chili powder"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_SALT",
+    "canonicalName": "Salt",
+    "aliases": [
+      "table salt",
+      "common salt"
+    ],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_CUMIN",
+    "canonicalName": "Cumin",
+    "aliases": [
+      "cumin seeds",
+      "jeera"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_TURMERIC",
+    "canonicalName": "Turmeric",
+    "aliases": [
+      "turmeric powder",
+      "haldi"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_SUGAR",
+    "canonicalName": "Sugar",
+    "aliases": [
+      "white sugar",
+      "granulated sugar"
+    ],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_GINGER",
+    "canonicalName": "Ginger",
+    "aliases": [
+      "fresh ginger"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_GARLIC",
+    "canonicalName": "Garlic",
+    "aliases": [
+      "fresh garlic"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_GREEN_CHILLI",
+    "canonicalName": "Green Chilli",
+    "aliases": [
+      "green chili",
+      "hari mirch"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CORIANDER",
+    "canonicalName": "Coriander",
+    "aliases": [
+      "cilantro",
+      "coriander leaves",
+      "dhaniya"
+    ],
+    "category": "Herbs",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_GARAM_MASALA",
+    "canonicalName": "Garam Masala",
+    "aliases": [
+      "garam masala powder"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_OIL",
+    "canonicalName": "Cooking Oil",
+    "aliases": [
+      "vegetable oil",
+      "refined oil"
+    ],
+    "category": "Pantry",
+    "defaultUnit": "ml",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_YOGURT",
+    "canonicalName": "Yogurt",
+    "aliases": [
+      "curd",
+      "dahi"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CASHEW",
+    "canonicalName": "Cashew",
+    "aliases": [
+      "cashew nuts",
+      "kaju"
+    ],
+    "category": "Nuts",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CINNAMON",
+    "canonicalName": "Cinnamon",
+    "aliases": [
+      "cinnamon stick",
+      "dalchini"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CARDAMOM",
+    "canonicalName": "Cardamom",
+    "aliases": [
+      "green cardamom",
+      "elaichi"
+    ],
+    "category": "Spices",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CLOVE",
+    "canonicalName": "Clove",
+    "aliases": [
+      "cloves",
+      "laung"
+    ],
+    "category": "Spices",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BAY_LEAF",
+    "canonicalName": "Bay Leaf",
+    "aliases": [
+      "bay leaves",
+      "tej patta"
+    ],
+    "category": "Spices",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_RICE",
+    "canonicalName": "Basmati Rice",
+    "aliases": [
+      "basmati rice",
+      "long grain basmati"
+    ],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_URAD_DAL",
+    "canonicalName": "Whole Urad Dal",
+    "aliases": [
+      "black gram",
+      "sabut urad",
+      "whole black lentil"
+    ],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_RAJMA",
+    "canonicalName": "Rajma",
+    "aliases": [
+      "kidney beans",
+      "red kidney beans"
+    ],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_POTATO",
+    "canonicalName": "Potato",
+    "aliases": [
+      "potatoes",
+      "aloo"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PEAS",
+    "canonicalName": "Green Peas",
+    "aliases": [
+      "peas",
+      "matar"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PAV",
+    "canonicalName": "Pav",
+    "aliases": [
+      "ladi pav",
+      "dinner rolls"
+    ],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PAV_BHAJI_MASALA",
+    "canonicalName": "Pav Bhaji Masala",
+    "aliases": [
+      "pav bhaji spice mix"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_LEMON",
+    "canonicalName": "Lemon",
+    "aliases": [
+      "lemons",
+      "nimbu"
+    ],
+    "category": "Fruits",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_MINT",
+    "canonicalName": "Mint",
+    "aliases": [
+      "mint leaves",
+      "pudina"
+    ],
+    "category": "Herbs",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_SAFFRON",
+    "canonicalName": "Saffron",
+    "aliases": [
+      "kesar",
+      "saffron strands"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BIRYANI_MASALA",
+    "canonicalName": "Biryani Masala",
+    "aliases": [
+      "biryani spice mix"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PASTA",
+    "canonicalName": "Pasta",
+    "aliases": [
+      "penne pasta",
+      "fusilli",
+      "spaghetti"
+    ],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PESTO",
+    "canonicalName": "Pesto",
+    "aliases": [
+      "basil pesto",
+      "pesto sauce"
+    ],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_PARMESAN",
+    "canonicalName": "Parmesan Cheese",
+    "aliases": [
+      "parmesan",
+      "grated parmesan"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BASIL",
+    "canonicalName": "Fresh Basil",
+    "aliases": [
+      "basil leaves"
+    ],
+    "category": "Herbs",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_OATS",
+    "canonicalName": "Rolled Oats",
+    "aliases": [
+      "oats",
+      "oatmeal"
+    ],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_CARROT",
+    "canonicalName": "Carrot",
+    "aliases": [
+      "carrots",
+      "gajar"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_FLOUR",
+    "canonicalName": "All-Purpose Flour",
+    "aliases": [
+      "maida",
+      "plain flour"
+    ],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_MILK",
+    "canonicalName": "Milk",
+    "aliases": [
+      "dairy milk",
+      "full cream milk"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "ml",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_EGG",
+    "canonicalName": "Egg",
+    "aliases": [
+      "eggs",
+      "chicken egg"
+    ],
+    "category": "Protein",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BAKING_POWDER",
+    "canonicalName": "Baking Powder",
+    "aliases": [
+      "baking powder"
+    ],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_VANILLA",
+    "canonicalName": "Vanilla Extract",
+    "aliases": [
+      "vanilla essence"
+    ],
+    "category": "Baking",
+    "defaultUnit": "ml",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_BLACK_PEPPER",
+    "canonicalName": "Black Pepper",
+    "aliases": [
+      "black pepper powder",
+      "kali mirch"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_RED_CHILLI",
+    "canonicalName": "Red Chilli Powder",
+    "aliases": [
+      "chilli powder",
+      "red chili powder"
+    ],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true
+  },
+  {
+    "_id": "ING_MOZZARELLA",
+    "canonicalName": "Mozzarella Cheese",
+    "aliases": [
+      "mozzarella"
+    ],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  },
+  {
+    "_id": "ING_LETTUCE",
+    "canonicalName": "Lettuce",
+    "aliases": [
+      "lettuce leaves"
+    ],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "_id": "IMG_PBM001",
+    "recipeId": "PBM001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer_Butter_Masala.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paneer_Butter_Masala.jpg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Krishnakerala",
+    "verified": true
+  },
+  {
+    "_id": "IMG_DM001",
+    "recipeId": "DM001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dal-Makhani.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dal-Makhani.jpg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Yugaljoshi",
+    "verified": true
+  },
+  {
+    "_id": "IMG_PB001",
+    "recipeId": "PB001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pav_bhaji.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pav_bhaji.jpg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Dforest",
+    "verified": true
+  },
+  {
+    "_id": "IMG_HDB001",
+    "recipeId": "HDB001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hyderabadi_Dum_Ki_Biryani.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyderabadi_Dum_Ki_Biryani.JPG",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "attribution": "Miansari66",
+    "verified": true,
+    "note": "Image depicts Hyderabadi dum biryani; verify visual match with your vegetarian recipe before using."
+  },
+  {
+    "_id": "IMG_CPP001",
+    "recipeId": "CPP001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Green_Pesto_Pasta.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Pesto_Pasta.jpg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Allen Marx 12",
+    "verified": true
+  },
+  {
+    "_id": "IMG_SMO001",
+    "recipeId": "SMO001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/MASALA_OATS.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MASALA_OATS.JPG",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Mkr.lines",
+    "verified": true
+  },
+  {
+    "_id": "IMG_CP001",
+    "recipeId": "CP001",
+    "type": "hero",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pancakes_(1).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancakes_(1).jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain / CC0 Public Domain Mark",
+    "attribution": "Renee Comet / National Cancer Institute",
+    "verified": true
+  }
+]
+

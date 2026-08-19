@@ -1,0 +1,55 @@
+[
+  {
+    "_id": "CAT_VEGETABLES",
+    "name": "Vegetables"
+  },
+  {
+    "_id": "CAT_FRUITS",
+    "name": "Fruits"
+  },
+  {
+    "_id": "CAT_DAIRY",
+    "name": "Dairy"
+  },
+  {
+    "_id": "CAT_BAKERY",
+    "name": "Bakery"
+  },
+  {
+    "_id": "CAT_GRAINS",
+    "name": "Grains"
+  },
+  {
+    "_id": "CAT_PULSES",
+    "name": "Pulses"
+  },
+  {
+    "_id": "CAT_SPICES",
+    "name": "Spices"
+  },
+  {
+    "_id": "CAT_HERBS",
+    "name": "Herbs"
+  },
+  {
+    "_id": "CAT_SAUCES",
+    "name": "Sauces"
+  },
+  {
+    "_id": "CAT_PANTRY",
+    "name": "Pantry"
+  },
+  {
+    "_id": "CAT_BAKING",
+    "name": "Baking"
+  },
+  {
+    "_id": "CAT_NUTS",
+    "name": "Nuts"
+  },
+  {
+    "_id": "CAT_PROTEIN",
+    "name": "Protein"
+  }
+]
+
