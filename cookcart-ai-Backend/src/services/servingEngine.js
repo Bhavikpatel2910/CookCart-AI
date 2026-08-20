@@ -34,7 +34,7 @@ export class ServingEngine {
         name: ri.name,
         requiredQuantity: Math.ceil(finalQuantity),
         unit: ri.unit,
-        required: ri.required,
+        required: ri.required !== false,
       };
     });
 

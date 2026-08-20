@@ -1,103 +1,240 @@
 import express from "express";
 const { Router } = express;
-import mongoose from "mongoose";
 import Recipe from "../models/Recipe.js";
 import RecipeSession from "../models/RecipeSession.js";
+import Product from "../models/Product.js";
+import Pantry from "../models/Pantry.js";
 import { ServingEngine } from "../services/servingEngine.js";
 import { PackOptimizer } from "../services/packOptimizer.js";
+import { validateBody, validateObjectIdParam } from "../middleware/validate.js";
 
 const router = Router();
 
-router.get("/:recipeId", async (req, res) => {
+router.get("/:recipeId", validateObjectIdParam("recipeId"), async (req, res, next) => {
   try {
     const recipe = await Recipe.findById(req.params.recipeId);
     if (!recipe) return res.status(404).json({ error: "Recipe not found" });
     res.json(recipe);
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    next(error);
   }
 });
 
-router.post("/:recipeId/generate", async (req, res) => {
-  try {
-    const { servings } = req.body;
-    const userId = req.headers["x-user-id"] || "dummy-user-id";
+router.post(
+  "/:recipeId/generate",
+  validateObjectIdParam("recipeId"),
+  validateBody({ servings: { required: true, type: "number", min: 1 } }),
+  async (req, res, next) => {
+    try {
+      const { servings } = req.body;
+      const userId = req.headers["x-user-id"] || "dummy-user-id";
 
-    if (!servings || servings <= 0) {
-      return res
-        .status(400)
-        .json({ error: "Valid servings count is required" });
+      const recipe = await Recipe.findById(req.params.recipeId);
+      if (!recipe) return res.status(404).json({ error: "Recipe not found" });
+
+      let scaledIngredients = await ServingEngine.scaleIngredients(recipe, servings);
+
+      // Phase 2 / Pantry: auto-exclude ingredients the user has already
+      // marked as owned staples, so they don't have to remove them by hand
+      // every time. We do this by pre-populating removedIngredients rather
+      // than dropping them from `ingredients`, so the UI can still show them
+      // (greyed out) and let the user re-add if their pantry data is stale.
+      const pantry = await Pantry.findOne({ userId });
+      const pantryIngredientIds = new Set(
+        (pantry?.ingredients || []).map((i) => i.ingredientId.toString()),
+      );
+
+      const removedIngredients = scaledIngredients
+        .filter((i) => pantryIngredientIds.has(i.ingredientId.toString()))
+        .map((i) => i.ingredientId);
+
+      const session = await RecipeSession.create({
+        userId,
+        recipeId: recipe._id,
+        servings,
+        ingredients: scaledIngredients,
+        removedIngredients,
+        selectedSKUs: [],
+        substitutions: [],
+        estimatedTotal: 0,
+        feasible: true,
+      });
+
+      res.json({
+        session,
+        pantryExcludedCount: removedIngredients.length,
+      });
+    } catch (error) {
+      next(error);
     }
+  },
+);
 
-    const recipe = await Recipe.findById(req.params.recipeId);
-    if (!recipe) return res.status(404).json({ error: "Recipe not found" });
+router.post(
+  "/:recipeId/match-products",
+  validateObjectIdParam("recipeId"),
+  validateBody({ sessionId: { required: true, type: "objectId" } }),
+  async (req, res, next) => {
+    try {
+      const { sessionId } = req.body;
 
-    const scaledIngredients = await ServingEngine.scaleIngredients(
-      recipe,
-      servings,
-    );
+      const session = await RecipeSession.findById(sessionId);
+      if (!session) return res.status(404).json({ error: "Session not found" });
 
-    const session = await RecipeSession.create({
-      userId,
-      recipeId: recipe._id,
-      servings,
-      ingredients: scaledIngredients,
-      removedIngredients: [],
-      selectedSKUs: [],
-      substitutions: [],
-      estimatedTotal: 0,
-    });
+      // Bug fix: ObjectIds need string comparison, not reference equality
+      const removedIds = new Set(session.removedIngredients.map((id) => id.toString()));
+      const activeIngredients = session.ingredients.filter(
+        (i) => !removedIds.has(i.ingredientId.toString()),
+      );
 
-    res.json({ session });
-  } catch (error) {
-    console.error("Generate error:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
+      const matchResults = await PackOptimizer.matchProductsForIngredients(activeIngredients);
 
-router.post("/:recipeId/match-products", async (req, res) => {
-  try {
-    const { sessionId } = req.body;
-    if (!sessionId) {
-      return res.status(400).json({ error: "sessionId is required" });
-    }
+      let estimatedTotal = 0;
+      const selectedSKUs = [];
 
-    const session = await RecipeSession.findById(sessionId);
-    if (!session) return res.status(404).json({ error: "Session not found" });
-
-    const activeIngredients = session.ingredients.filter(
-      (i) => !session.removedIngredients.includes(i.ingredientId),
-    );
-
-    const matchResults =
-      await PackOptimizer.matchProductsForIngredients(activeIngredients);
-
-    let estimatedTotal = 0;
-    const selectedSKUs = [];
-
-    for (const result of matchResults) {
-      for (const matched of result.matchedProducts) {
-        estimatedTotal += matched.price * matched.quantity;
-        selectedSKUs.push({
-          productId: matched.productId,
-          quantity: matched.quantity,
-        });
+      for (const result of matchResults) {
+        for (const matched of result.matchedProducts) {
+          estimatedTotal += matched.price * matched.quantity;
+          selectedSKUs.push({
+            productId: matched.productId,
+            quantity: matched.quantity,
+          });
+        }
       }
+
+      // FR-10: Recipe Feasibility — "Currently unavailable to cook" if any
+      // REQUIRED (non-garnish) ingredient has no fulfillable product at all.
+      const unavailableCriticalIngredients = matchResults.filter(
+        (r) => r.required && r.matchedProducts.length === 0,
+      );
+      const feasible = unavailableCriticalIngredients.length === 0;
+
+      // FR-09: collect disclosure messages for anything substituted/unavailable
+      const substitutionNotices = matchResults
+        .filter((r) => r.substitutionOccurred)
+        .map((r) => ({ ingredientId: r.ingredientId, message: r.substitutionMessage }));
+
+      session.selectedSKUs = selectedSKUs;
+      session.estimatedTotal = estimatedTotal;
+      session.feasible = feasible;
+      await session.save();
+
+      res.json({
+        sessionId: session._id,
+        matchResults,
+        estimatedTotal,
+        feasible,
+        feasibilityMessage: feasible ? "Ready to cook" : "Currently unavailable to cook",
+        unavailableIngredients: unavailableCriticalIngredients.map((r) => ({
+          ingredientId: r.ingredientId,
+          name: r.ingredientName,
+        })),
+        substitutionNotices,
+      });
+    } catch (error) {
+      next(error);
     }
+  },
+);
 
-    session.selectedSKUs = selectedSKUs;
-    session.estimatedTotal = estimatedTotal;
-    await session.save();
+// FR-07 / US-07: "Change Product" — list alternatives for one ingredient in a session
+router.get(
+  "/:recipeId/ingredients/:ingredientId/alternatives",
+  validateObjectIdParam("recipeId"),
+  validateObjectIdParam("ingredientId"),
+  async (req, res, next) => {
+    try {
+      const { sessionId } = req.query;
+      if (!sessionId) return res.status(400).json({ error: "sessionId query param is required" });
 
-    res.json({
-      sessionId: session._id,
-      matchResults,
-      estimatedTotal,
-    });
-  } catch (error) {
-    console.error("Match error:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
+      const session = await RecipeSession.findById(sessionId);
+      if (!session) return res.status(404).json({ error: "Session not found" });
+
+      const sessionIngredient = session.ingredients.find(
+        (i) => i.ingredientId.toString() === req.params.ingredientId,
+      );
+      if (!sessionIngredient) {
+        return res.status(404).json({ error: "Ingredient not found in this session" });
+      }
+
+      const alternatives = await PackOptimizer.getAlternativesForIngredient(
+        req.params.ingredientId,
+        sessionIngredient.requiredQuantity,
+      );
+
+      res.json({ ingredientId: req.params.ingredientId, alternatives });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+// FR-07 / US-07: apply a chosen alternative product to the session
+router.post(
+  "/:recipeId/change-product",
+  validateObjectIdParam("recipeId"),
+  validateBody({
+    sessionId: { required: true, type: "objectId" },
+    ingredientId: { required: true, type: "objectId" },
+    newProductId: { required: true, type: "objectId" },
+  }),
+  async (req, res, next) => {
+    try {
+      const { sessionId, ingredientId, newProductId } = req.body;
+
+      const session = await RecipeSession.findById(sessionId);
+      if (!session) return res.status(404).json({ error: "Session not found" });
+
+      const sessionIngredient = session.ingredients.find(
+        (i) => i.ingredientId.toString() === ingredientId,
+      );
+      if (!sessionIngredient) {
+        return res.status(404).json({ error: "Ingredient not found in this session" });
+      }
+
+      const newProduct = await Product.findById(newProductId);
+      if (!newProduct) return res.status(404).json({ error: "Product not found" });
+
+      const packsNeeded = Math.ceil(sessionIngredient.requiredQuantity / newProduct.packSize);
+      if (packsNeeded > newProduct.inventory) {
+        return res.status(409).json({ error: "Selected product does not have enough inventory" });
+      }
+
+      // Drop any previously selected SKU that belonged to this ingredient
+      const productsForIngredient = await Product.find({ ingredientId }, "_id");
+      const oldProductIds = new Set(productsForIngredient.map((p) => p._id.toString()));
+
+      session.selectedSKUs = session.selectedSKUs.filter(
+        (sku) => !oldProductIds.has(sku.productId.toString()),
+      );
+      session.selectedSKUs.push({ productId: newProduct._id, quantity: packsNeeded });
+
+      // Recompute total from the current selection to stay consistent
+      let recomputedTotal = 0;
+      for (const sku of session.selectedSKUs) {
+        const p = await Product.findById(sku.productId);
+        if (p) recomputedTotal += p.price * sku.quantity;
+      }
+      session.estimatedTotal = recomputedTotal;
+
+      await session.save();
+
+      res.json({
+        message: "Product changed successfully",
+        ingredientId,
+        selectedProduct: {
+          productId: newProduct._id,
+          name: newProduct.name,
+          brand: newProduct.brand,
+          price: newProduct.price,
+          quantity: packsNeeded,
+        },
+        estimatedTotal: session.estimatedTotal,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 export default router;

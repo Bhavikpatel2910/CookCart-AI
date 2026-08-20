@@ -5,7 +5,8 @@ const SessionIngredientSchema = new Schema({
   ingredientId: { type: Schema.Types.ObjectId, ref: 'Ingredient', required: true },
   name: { type: String, required: true },
   requiredQuantity: { type: Number, required: true },
-  unit: { type: String, required: true }
+  unit: { type: String, required: true },
+  required: { type: Boolean, default: true }
 }, { _id: false });
 
 const SelectedSKUSchema = new Schema({
@@ -27,7 +28,8 @@ const RecipeSessionSchema = new Schema({
   removedIngredients: [{ type: Schema.Types.ObjectId, ref: 'Ingredient' }],
   selectedSKUs: [SelectedSKUSchema],
   substitutions: [SubstitutionSchema],
-  estimatedTotal: { type: Number, required: true, default: 0 }
+  estimatedTotal: { type: Number, required: true, default: 0 },
+  feasible: { type: Boolean, default: true }
 }, {
   timestamps: true
 });
