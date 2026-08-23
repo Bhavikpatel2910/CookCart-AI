@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 import Ingredient from "../models/Ingredient.js";
 import Product from "../models/Product.js";
 import Recipe from "../models/Recipe.js";
@@ -7,10 +11,20 @@ import Pantry from "../models/Pantry.js";
 
 dotenv.config();
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SEED_DIR = path.join(__dirname, "seed");
+
+const readJSON = (filename) =>
+  JSON.parse(fs.readFileSync(path.join(SEED_DIR, filename), "utf-8"));
+
+// The dataset uses human-readable string ids (e.g. "ING_PANEER", "SKU0001",
+// "PBM001") so it's portable and easy to read/edit. MongoDB generates its
+// own ObjectIds on insert, so we remap dataset-id -> real ObjectId as we go
+// and rewrite every reference (products.ingredientId, recipes.ingredients[].ingredientId)
+// to point at the freshly created documents.
 const seedDatabase = async () => {
   try {
-    const mongoURI =
-      process.env.MONGO_URI || "mongodb://localhost:27017/cookcart";
+    const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/cookcart";
     await mongoose.connect(mongoURI);
     console.log("Connected to MongoDB for seeding...");
 
@@ -20,148 +34,111 @@ const seedDatabase = async () => {
     await Pantry.deleteMany({});
     console.log("Cleared existing data.");
 
-    const paneer = await Ingredient.create({
-      canonicalName: "Paneer",
-      aliases: ["Indian Cottage Cheese", "Fresh Paneer"],
-      category: "Dairy",
-      defaultUnit: "g",
-    });
+    // ---------- Ingredients ----------
+    const rawIngredients = readJSON("ingredients.json");
+    const ingredientIdMap = new Map(); // dataset _id -> Mongo ObjectId
 
-    const tomato = await Ingredient.create({
-      canonicalName: "Tomato",
-      aliases: ["Fresh Tomato", "Tomatoes"],
-      category: "Vegetables",
-      defaultUnit: "g",
-    });
+    for (const raw of rawIngredients) {
+      const doc = await Ingredient.create({
+        canonicalName: raw.canonicalName,
+        aliases: raw.aliases || [],
+        category: raw.category,
+        defaultUnit: raw.defaultUnit,
+        isPantryStaple: raw.isPantryStaple ?? false,
+        active: raw.active ?? true,
+      });
+      ingredientIdMap.set(raw._id, doc._id);
+    }
+    console.log(`Seeded ${ingredientIdMap.size} ingredients.`);
 
-    const butter = await Ingredient.create({
-      canonicalName: "Butter",
-      aliases: ["Amul Butter", "Salted Butter"],
-      category: "Dairy",
-      defaultUnit: "g",
-    });
+    // ---------- Products ----------
+    const rawProducts = readJSON("products.json");
+    let productCount = 0;
+    let skippedProducts = 0;
 
-    const garamMasala = await Ingredient.create({
-      canonicalName: "Garam Masala",
-      aliases: ["Masala", "Mixed Spices"],
-      category: "Spices",
-      defaultUnit: "g",
-    });
+    for (const raw of rawProducts) {
+      const ingredientObjectId = ingredientIdMap.get(raw.ingredientId);
+      if (!ingredientObjectId) {
+        console.warn(
+          `Skipping product "${raw.name}" — unknown ingredientId "${raw.ingredientId}"`,
+        );
+        skippedProducts += 1;
+        continue;
+      }
 
-    await Product.create([
-      {
-        name: "Amul Fresh Paneer",
-        brand: "Amul",
-        ingredientId: paneer._id,
-        packSize: 200,
-        unit: "g",
-        price: 90,
-        inventory: 50,
-        category: "Dairy",
-      },
-      {
-        name: "Mother Dairy Paneer",
-        brand: "Mother Dairy",
-        ingredientId: paneer._id,
-        packSize: 400,
-        unit: "g",
-        price: 170,
-        inventory: 20,
-        category: "Dairy",
-      },
-      {
-        name: "Fresh Hybrid Tomato",
-        brand: "Local",
-        ingredientId: tomato._id,
-        packSize: 500,
-        unit: "g",
-        price: 40,
-        inventory: 100,
-        category: "Vegetables",
-      },
-      {
-        name: "Amul Salted Butter",
-        brand: "Amul",
-        ingredientId: butter._id,
-        packSize: 100,
-        unit: "g",
-        price: 58,
-        inventory: 200,
-        category: "Dairy",
-      },
-      {
-        name: "Amul Salted Butter Large",
-        brand: "Amul",
-        ingredientId: butter._id,
-        packSize: 500,
-        unit: "g",
-        price: 285,
-        inventory: 50,
-        category: "Dairy",
-      },
-      {
-        name: "Everest Garam Masala",
-        brand: "Everest",
-        ingredientId: garamMasala._id,
-        packSize: 50,
-        unit: "g",
-        price: 45,
-        inventory: 30,
-        category: "Spices",
-      },
-    ]);
+      await Product.create({
+        name: raw.name,
+        brand: raw.brand,
+        ingredientId: ingredientObjectId,
+        packSize: raw.packSize,
+        unit: raw.unit,
+        price: raw.price,
+        inventory: raw.inventory ?? 0,
+        image: raw.image || undefined,
+        category: raw.category,
+        active: raw.active ?? true,
+      });
+      productCount += 1;
+    }
+    console.log(`Seeded ${productCount} products (${skippedProducts} skipped).`);
 
-    await Recipe.create({
-      name: "Paneer Butter Masala",
-      slug: "paneer-butter-masala",
-      description:
-        "A rich & creamy curry made with paneer, spices, onions, tomatoes, cashews and butter.",
-      image: "https://example.com/pbm.jpg",
-      baseServings: 4,
-      prepTime: 15,
-      cookTime: 30,
-      difficulty: "Easy",
-      dietType: "Vegetarian",
-      cuisine: "North Indian",
-      ingredients: [
-        {
-          ingredientId: paneer._id,
-          name: "Paneer",
-          quantity: 400,
-          unit: "g",
-          required: true,
-        },
-        {
-          ingredientId: tomato._id,
-          name: "Tomatoes",
-          quantity: 300,
-          unit: "g",
-          required: true,
-        },
-        {
-          ingredientId: butter._id,
-          name: "Butter",
-          quantity: 75,
-          unit: "g",
-          required: true,
-        },
-        {
-          ingredientId: garamMasala._id,
-          name: "Garam Masala",
-          quantity: 10,
-          unit: "g",
-          required: true,
-        },
-      ],
-      steps: [
-        "Heat butter in a pan.",
-        "Add chopped tomatoes and cook until soft.",
-        "Blend to a smooth puree.",
-        "Cook puree with spices (Garam Masala).",
-        "Add cubed paneer and simmer for 5 minutes.",
-      ],
-      tags: ["curry", "dinner", "popular"],
-    });
+    // ---------- Recipes ----------
+    const rawRecipes = readJSON("recipes.json");
+    let recipeCount = 0;
+    let skippedRecipeIngredients = 0;
+
+    for (const raw of rawRecipes) {
+      const ingredients = [];
+
+      for (const ing of raw.ingredients || []) {
+        const ingredientObjectId = ingredientIdMap.get(ing.ingredientId);
+        if (!ingredientObjectId) {
+          console.warn(
+            `Skipping ingredient "${ing.ingredientId}" in recipe "${raw.name}" — not found`,
+          );
+          skippedRecipeIngredients += 1;
+          continue;
+        }
+        const ingredientDoc = rawIngredients.find((i) => i._id === ing.ingredientId);
+
+        ingredients.push({
+          ingredientId: ingredientObjectId,
+          name: ingredientDoc?.canonicalName || ing.ingredientId,
+          quantity: ing.quantity,
+          unit: ing.unit,
+          required: ing.required ?? true,
+          critical: ing.critical ?? true,
+          scalingRule: ing.scalingRule || "linear",
+        });
+      }
+
+      const steps = (raw.steps || []).map((s, idx) => ({
+        step: s.step ?? idx + 1,
+        title: s.title || "",
+        description: s.description || "",
+      }));
+
+      await Recipe.create({
+        name: raw.name,
+        slug: raw.slug,
+        description: raw.description,
+        image: raw.image,
+        imageSource: raw.imageSource,
+        baseServings: raw.baseServings,
+        prepTime: raw.prepTime,
+        cookTime: raw.cookTime,
+        difficulty: raw.difficulty,
+        dietType: raw.dietType,
+        cuisine: raw.cuisine,
+        ingredients,
+        steps,
+        tags: raw.tags || [],
+      });
+      recipeCount += 1;
+    }
+    console.log(
+      `Seeded ${recipeCount} recipes (${skippedRecipeIngredients} ingredient refs skipped).`,
+    );
 
     console.log("Database seeded successfully.");
     process.exit(0);

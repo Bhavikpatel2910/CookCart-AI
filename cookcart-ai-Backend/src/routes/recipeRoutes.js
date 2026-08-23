@@ -10,6 +10,22 @@ import { validateBody, validateObjectIdParam } from "../middleware/validate.js";
 
 const router = Router();
 
+// List all recipes (used by frontend recipe listing/search + FR-02)
+router.get("/", async (req, res, next) => {
+  try {
+    const { dietType, cuisine, difficulty } = req.query;
+    const filter = {};
+    if (dietType) filter.dietType = dietType;
+    if (cuisine) filter.cuisine = cuisine;
+    if (difficulty) filter.difficulty = difficulty;
+
+    const recipes = await Recipe.find(filter).sort({ name: 1 });
+    res.json({ recipes });
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/:recipeId", validateObjectIdParam("recipeId"), async (req, res, next) => {
   try {
     const recipe = await Recipe.findById(req.params.recipeId);
@@ -103,9 +119,11 @@ router.post(
       }
 
       // FR-10: Recipe Feasibility — "Currently unavailable to cook" if any
-      // REQUIRED (non-garnish) ingredient has no fulfillable product at all.
+      // CRITICAL ingredient (absence materially prevents the dish, e.g.
+      // paneer for Paneer Butter Masala) has no fulfillable product.
+      // Falls back to `required` for older recipes seeded without `critical`.
       const unavailableCriticalIngredients = matchResults.filter(
-        (r) => r.required && r.matchedProducts.length === 0,
+        (r) => r.critical && r.matchedProducts.length === 0,
       );
       const feasible = unavailableCriticalIngredients.length === 0;
 

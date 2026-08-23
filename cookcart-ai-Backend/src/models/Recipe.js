@@ -11,7 +11,31 @@ const RecipeIngredientSchema = new Schema(
     name: { type: String, required: true },
     quantity: { type: Number, required: true },
     unit: { type: String, required: true },
+    // FR-03: whether this ingredient appears in the shopping list at all
     required: { type: Boolean, default: true },
+    // FR-10: whether the recipe is "unavailable to cook" if this ingredient
+    // can't be sourced (e.g. paneer for Paneer Butter Masala). Garnish-type
+    // ingredients (e.g. kasuri methi) are required=false/critical=false and
+    // never block feasibility.
+    critical: { type: Boolean, default: true },
+    // FR-04: per-ingredient scaling behaviour used by the deterministic
+    // serving engine — 'linear' scales proportionally with servings,
+    // 'moderate' applies the dampened non-linear curve (spices/oil/salt),
+    // 'fixed' does not scale with servings at all (e.g. a garnish pinch).
+    scalingRule: {
+      type: String,
+      enum: ["linear", "moderate", "fixed"],
+      default: "linear",
+    },
+  },
+  { _id: false },
+);
+
+const RecipeStepSchema = new Schema(
+  {
+    step: { type: Number, required: true },
+    title: { type: String },
+    description: { type: String, required: true },
   },
   { _id: false },
 );
@@ -22,6 +46,7 @@ const RecipeSchema = new Schema(
     slug: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     image: { type: String },
+    imageSource: { type: Schema.Types.Mixed },
     baseServings: { type: Number, required: true },
     prepTime: { type: Number, required: true },
     cookTime: { type: Number, required: true },
@@ -33,7 +58,7 @@ const RecipeSchema = new Schema(
     dietType: { type: String },
     cuisine: { type: String },
     ingredients: [RecipeIngredientSchema],
-    steps: [{ type: String }],
+    steps: [RecipeStepSchema],
     tags: [{ type: String }],
   },
   {

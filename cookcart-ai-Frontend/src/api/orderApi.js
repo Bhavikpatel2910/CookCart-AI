@@ -1,5 +1,48 @@
 import { loadDataset } from './datasetApi.js';
 import { getRecipeImageUrl, getProductImageUrl } from '../utils/imageUtils.js';
+import api from '../services/api.js';
+
+// Places a real order against the backend. The order is stored in MongoDB
+// against the logged-in user (identified via the JWT sent by services/api.js).
+export async function placeOrder({
+  items,
+  address,
+  recipeId,
+  deliveryMethod,
+  paymentMethod,
+  deliveryFee,
+  packagingFee,
+}) {
+  const payload = {
+    items: items.map((item) => ({
+      sku_id: item.skuId ?? item.id,
+      name: item.name,
+      quantity: item.quantity,
+      unit_price: item.price,
+    })),
+    address,
+    recipe_id: recipeId || undefined,
+    deliveryMethod,
+    paymentMethod,
+    deliveryFee,
+    packagingFee,
+  };
+
+  const { data } = await api.post('/orders', payload);
+  return data.order;
+}
+
+// Fetches the logged-in user's orders from the backend.
+export async function getMyOrders() {
+  const { data } = await api.get('/orders');
+  return data.orders;
+}
+
+// Fetches a single order (must belong to the logged-in user) from the backend.
+export async function getMyOrderById(orderId) {
+  const { data } = await api.get(`/orders/${orderId}`);
+  return data.order;
+}
 
 export async function getOrderById(orderId) {
   const dataset = await loadDataset();

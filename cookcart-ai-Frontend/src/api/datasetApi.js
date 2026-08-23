@@ -1,21 +1,45 @@
-const API_BASE_URL = '/dataset';
+// Core catalog data (recipes, ingredients, products) now comes from the real
+// Express + MongoDB backend — see cookcart-ai-Backend. During `npm run dev`,
+// vite.config.js proxies /api/* to the backend so this works with no CORS
+// setup. In production, set VITE_API_BASE_URL to the deployed backend's
+// public /api URL.
+//
+// Everything else (substitutions, recommendations, favorites, orders, search
+// aliases, etc.) is still demo/mock data served from /public/dataset — the
+// backend doesn't model those collections yet (Phase 2/3 per the PRD), so
+// they stay local for now rather than silently going empty.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '/api';
+const DATASET_BASE_URL = '/dataset';
 
 let datasetCache = null;
 let loadingPromise = null;
 
-async function fetchJSON(filename, { optional = false } = {}) {
-  const response = await fetch(`${API_BASE_URL}/${filename}`);
+async function fetchJSON(url, { optional = false } = {}) {
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (networkError) {
+    if (optional) return [];
+    throw new Error(`Failed to reach ${url}: ${networkError.message}`);
+  }
   const contentType = response.headers.get('content-type') || '';
   if (!response.ok || !contentType.includes('json')) {
     if (optional) return [];
-    throw new Error(`Dataset file ${filename} is unavailable or is not JSON (${response.status})`);
+    throw new Error(`${url} is unavailable or is not JSON (${response.status})`);
   }
   try {
     return await response.json();
   } catch {
     if (optional) return [];
-    throw new Error(`Dataset file ${filename} contains invalid JSON`);
+    throw new Error(`${url} contains invalid JSON`);
   }
+}
+
+// Backend list endpoints return { recipes: [...] } / { ingredients: [...] } /
+// { products: [...] } — unwrap to the plain array datasetApi consumers expect.
+async function fetchBackendList(resource, key) {
+  const data = await fetchJSON(`${API_BASE_URL}/${resource}`);
+  return Array.isArray(data) ? data : (data[key] ?? []);
 }
 
 function normalizeRecipe(recipe) {
@@ -68,11 +92,27 @@ export async function loadDataset() {
 
   loadingPromise = (async () => {
     try {
-      const [rawRecipes, rawIngredients, rawProducts] = await Promise.all([
-        fetchJSON('recipes.json'),
-        fetchJSON('ingredients.json'),
-        fetchJSON('products.json'),
-      ]);
+      let rawRecipes, rawIngredients, rawProducts;
+      try {
+        // Primary source: the real backend (MongoDB via Express API)
+        [rawRecipes, rawIngredients, rawProducts] = await Promise.all([
+          fetchBackendList('recipes', 'recipes'),
+          fetchBackendList('ingredients', 'ingredients'),
+          fetchBackendList('products', 'products'),
+        ]);
+      } catch (backendError) {
+        // Fallback: local static demo dataset, so the app still runs (e.g.
+        // during frontend-only development) if the backend isn't up.
+        console.warn(
+          `Backend unreachable (${backendError.message}), falling back to local demo dataset.`,
+        );
+        [rawRecipes, rawIngredients, rawProducts] = await Promise.all([
+          fetchJSON(`${DATASET_BASE_URL}/recipes.json`),
+          fetchJSON(`${DATASET_BASE_URL}/ingredients.json`),
+          fetchJSON(`${DATASET_BASE_URL}/products.json`),
+        ]);
+      }
+
       const recipes = rawRecipes.map(normalizeRecipe);
       const ingredients = rawIngredients.map(normalizeIngredient);
       const products = rawProducts.map(normalizeProduct);
@@ -88,7 +128,9 @@ export async function loadDataset() {
         'serving_test_cases.json', 'pack_optimization_test_cases.json',
         'dataset_summary.json', 'validation_report.json',
       ];
-      const optional = await Promise.all(optionalFiles.map((file) => fetchJSON(file, { optional: true })));
+      const optional = await Promise.all(
+        optionalFiles.map((file) => fetchJSON(`${DATASET_BASE_URL}/${file}`, { optional: true })),
+      );
       const [substitutions, users, pantry, recipeSessions, carts, orders, favorites,
         recentlyCooked, recommendations, searchAliases, searchIntents,
         servingTestCases, packOptimizationTestCases, datasetSummary, validationReport] = optional;

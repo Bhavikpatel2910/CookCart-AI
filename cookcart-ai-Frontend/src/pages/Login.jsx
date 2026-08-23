@@ -28,18 +28,31 @@ export default function Login() {
     navigate(from, { replace: true })
   }
 
-  const onSubmit = (values) => {
-    login({ email: values.identifier, phone: values.identifier })
-    afterLogin()
+  const onSubmit = async (values) => {
+    const identifier = values.identifier?.trim() ?? ''
+    const isEmail = identifier.includes('@')
+    try {
+      await login({
+        email: isEmail ? identifier : undefined,
+        phone: !isEmail ? identifier : undefined,
+        password: values.password,
+      })
+      afterLogin()
+    } catch (error) {
+      toast.error(error.response?.data?.error ?? 'Invalid email/phone or password')
+    }
   }
 
-  const handleBlinkit = () => {
+  const handleBlinkit = async () => {
     setBlinkitLoading(true)
-    window.setTimeout(() => {
-      loginWithBlinkit()
-      setBlinkitLoading(false)
+    try {
+      await loginWithBlinkit()
       afterLogin()
-    }, 700)
+    } catch (error) {
+      toast.error(error.message ?? 'Blinkit sign-in is unavailable right now')
+    } finally {
+      setBlinkitLoading(false)
+    }
   }
 
   return (

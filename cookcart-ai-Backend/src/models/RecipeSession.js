@@ -6,7 +6,9 @@ const SessionIngredientSchema = new Schema({
   name: { type: String, required: true },
   requiredQuantity: { type: Number, required: true },
   unit: { type: String, required: true },
-  required: { type: Boolean, default: true }
+  required: { type: Boolean, default: true },
+  critical: { type: Boolean, default: true },
+  scalingRule: { type: String, enum: ['linear', 'moderate', 'fixed'], default: 'linear' }
 }, { _id: false });
 
 const SelectedSKUSchema = new Schema({

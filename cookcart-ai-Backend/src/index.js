@@ -19,13 +19,19 @@ import cartRoutes from "./routes/cartRoutes.js";
 import sessionRoutes from "./routes/sessionRoutes.js";
 import pantryRoutes from "./routes/pantryRoutes.js";
 import ingredientRoutes from "./routes/ingredientRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
+app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/search", searchRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/recipe-session", sessionRoutes);
 app.use("/api/pantry", pantryRoutes);
 app.use("/api/ingredients", ingredientRoutes);
+app.use("/api/products", productRoutes);
 
 app.get("/api/health", (req, res) => {
   res

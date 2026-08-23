@@ -16,6 +16,7 @@ const ProductSchema = new Schema(
     inventory: { type: Number, required: true, default: 0 },
     image: { type: String },
     category: { type: String },
+    active: { type: Boolean, default: true },
   },
   {
     timestamps: true,

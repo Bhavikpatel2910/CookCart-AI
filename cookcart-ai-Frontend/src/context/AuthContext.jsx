@@ -1,6 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useContext } from 'react';
-import { getAllUsers, getDefaultUser, getCurrentUserFromStorage, setCurrentUserInStorage, clearCurrentUserStorage } from '../api/userApi.js';
+import {
+  getCurrentUserFromStorage,
+  setCurrentUserInStorage,
+  clearCurrentUserStorage,
+  getToken,
+  loginRequest,
+  signupRequest,
+  fetchCurrentUser,
+  logoutRequest,
+} from '../api/authApi.js';
 import { getInitials } from '../utils/helpers.js';
 import { AuthContext } from './context.js';
 
@@ -12,97 +21,98 @@ export function useAuth() {
   return context;
 }
 
-// No remote placeholders: avatars fall back to initials in the UI.
-const PLACEHOLDER_AVATAR = '';
+function toProfile(user, provider) {
+  if (!user) return null;
+  return {
+    user_id: user.user_id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone || '',
+    avatar: '',
+    initials: getInitials(user.name),
+    provider,
+  };
+}
 
 export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(() => getCurrentUserFromStorage());
+  const [loading, setLoading] = useState(true);
+
+  // On first load, if we have a token, re-validate it against the backend
+  // so a stale/expired token doesn't leave a stale user in the UI.
+  useEffect(() => {
+    let cancelled = false;
+    async function rehydrate() {
+      const token = getToken();
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+      try {
+        const user = await fetchCurrentUser();
+        if (!cancelled) setAuth(toProfile(user, 'credentials'));
+      } catch {
+        if (!cancelled) {
+          logoutRequest();
+          setAuth(null);
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    rehydrate();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (auth) setCurrentUserInStorage(auth);
     else clearCurrentUserStorage();
   }, [auth]);
 
-  const loginWithBlinkit = useCallback(async () => {
-    const user = await getDefaultUser();
-    if (user) {
-      const profile = {
-        user_id: user.user_id,
-        name: user.name,
-        email: user.email,
-        phone: user.phone || '',
-        avatar: user.avatar || PLACEHOLDER_AVATAR,
-        initials: getInitials(user.name),
-        provider: 'blinkit',
-      };
-      setAuth(profile);
-      return profile;
-    }
-    return null;
-  }, []);
-
-  const login = useCallback(async ({ email, phone }) => {
-    const users = await getAllUsers();
-    let user = null;
-    if (email) user = users.find(u => u.email === email);
-    if (!user && phone) user = users.find(u => u.phone === phone);
-    
-    if (user) {
-      const profile = {
-        user_id: user.user_id,
-        name: user.name,
-        email: email || user.email,
-        phone: phone || user.phone || '',
-        avatar: user.avatar || PLACEHOLDER_AVATAR,
-        initials: getInitials(user.name),
-        provider: 'credentials',
-      };
-      setAuth(profile);
-      return profile;
-    }
-
-    const defaultUser = await getDefaultUser();
-    if (defaultUser) {
-      const profile = {
-        user_id: defaultUser.user_id,
-        name: defaultUser.name,
-        email: email || defaultUser.email,
-        phone: phone || defaultUser.phone || '',
-        avatar: defaultUser.avatar || PLACEHOLDER_AVATAR,
-        initials: getInitials(defaultUser?.name || 'Guest'),
-        provider: 'credentials',
-      };
-      setAuth(profile);
-      return profile;
-    }
-    return null;
-  }, []);
-
-  const signup = useCallback(({ name, email, phone }) => {
-    const profile = {
-      user_id: `USR${Date.now()}`,
-      name: name?.trim() || 'Chef',
-      email: email?.trim() || phone?.trim() || '',
-      phone: phone?.trim() || email?.trim() || '',
-      avatar: PLACEHOLDER_AVATAR,
-      initials: getInitials(name),
-      provider: 'signup',
-    };
+  const login = useCallback(async ({ email, phone, password }) => {
+    const user = await loginRequest({ email, phone, password });
+    const profile = toProfile(user, 'credentials');
     setAuth(profile);
     return profile;
   }, []);
 
-  const logout = useCallback(() => setAuth(null), []);
+  const signup = useCallback(async ({ name, identifier, email, phone, password }) => {
+    // The signup form collects a single "identifier" field (email or phone).
+    // Split it out so the backend gets a proper email/phone pair.
+    const trimmedIdentifier = identifier?.trim() ?? '';
+    const isEmail = trimmedIdentifier.includes('@');
+    const resolvedEmail = email ?? (isEmail ? trimmedIdentifier : undefined);
+    const resolvedPhone = phone ?? (!isEmail ? trimmedIdentifier : undefined);
+
+    const user = await signupRequest({ name, email: resolvedEmail, phone: resolvedPhone, password });
+    const profile = toProfile(user, 'signup');
+    setAuth(profile);
+    return profile;
+  }, []);
+
+  const logout = useCallback(() => {
+    logoutRequest();
+    setAuth(null);
+  }, []);
+
+  // Blinkit OAuth isn't wired up on the backend yet; surface a clear error
+  // instead of silently faking a session.
+  const loginWithBlinkit = useCallback(async () => {
+    throw new Error('Sign in with Blinkit is not available yet. Please use email/password.');
+  }, []);
 
   const value = useMemo(() => ({
     isAuthenticated: Boolean(auth),
     user: auth,
     provider: auth?.provider ?? null,
-    loginWithBlinkit,
+    loading,
     login,
     signup,
     logout,
-  }), [auth, loginWithBlinkit, login, signup, logout]);
+    loginWithBlinkit,
+  }), [auth, loading, login, signup, logout, loginWithBlinkit]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

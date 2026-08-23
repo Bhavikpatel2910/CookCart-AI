@@ -33,18 +33,25 @@ export default function Signup() {
     navigate(from, { replace: true })
   }
 
-  const onSubmit = (values) => {
-    signup(values)
-    afterAuth()
+  const onSubmit = async (values) => {
+    try {
+      await signup(values)
+      afterAuth()
+    } catch (error) {
+      toast.error(error.response?.data?.error ?? 'Could not create account')
+    }
   }
 
-  const handleBlinkit = () => {
+  const handleBlinkit = async () => {
     setBlinkitLoading(true)
-    window.setTimeout(() => {
-      loginWithBlinkit()
-      setBlinkitLoading(false)
+    try {
+      await loginWithBlinkit()
       afterAuth()
-    }, 700)
+    } catch (error) {
+      toast.error(error.message ?? 'Blinkit sign-in is unavailable right now')
+    } finally {
+      setBlinkitLoading(false)
+    }
   }
 
   return (

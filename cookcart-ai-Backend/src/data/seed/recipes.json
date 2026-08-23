@@ -1,0 +1,1140 @@
+[
+  {
+    "_id": "PBM001",
+    "name": "Paneer Butter Masala",
+    "slug": "paneer-butter-masala",
+    "description": "Creamy North Indian paneer curry with tomato, butter, cream and aromatic spices.",
+    "baseServings": 4,
+    "prepTime": 15,
+    "cookTime": 30,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer_Butter_Masala.jpg",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paneer_Butter_Masala.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Krishnakerala"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 400,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CREAM",
+        "quantity": 100,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_KASHMIRI_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_KASURI_METHI",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SUGAR",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prepare",
+        "description": "Cut paneer and prepare onion, tomato, ginger and garlic."
+      },
+      {
+        "step": 2,
+        "title": "Cook masala",
+        "description": "Cook onion, ginger, garlic and tomatoes with spices until soft."
+      },
+      {
+        "step": 3,
+        "title": "Blend",
+        "description": "Blend the cooked tomato mixture into a smooth gravy."
+      },
+      {
+        "step": 4,
+        "title": "Finish gravy",
+        "description": "Cook the gravy with butter and cream, then adjust seasoning."
+      },
+      {
+        "step": 5,
+        "title": "Add paneer",
+        "description": "Add paneer and simmer gently until heated through."
+      },
+      {
+        "step": 6,
+        "title": "Finish",
+        "description": "Add kasuri methi and serve hot."
+      }
+    ],
+    "tags": [
+      "paneer",
+      "indian",
+      "vegetarian",
+      "north-indian",
+      "curry"
+    ]
+  },
+  {
+    "_id": "DM001",
+    "name": "Dal Makhani",
+    "slug": "dal-makhani",
+    "description": "Slow-cooked creamy black lentil curry with butter and aromatic spices.",
+    "baseServings": 4,
+    "prepTime": 15,
+    "cookTime": 45,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dal-Makhani.jpg",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dal-Makhani.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Yugaljoshi"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_URAD_DAL",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RAJMA",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 120,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CREAM",
+        "quantity": 60,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_KASHMIRI_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_KASURI_METHI",
+        "quantity": 3,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 7,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Soak",
+        "description": "Soak urad dal and rajma until softened."
+      },
+      {
+        "step": 2,
+        "title": "Cook lentils",
+        "description": "Cook the soaked lentils until tender."
+      },
+      {
+        "step": 3,
+        "title": "Make masala",
+        "description": "Cook cumin, onion, ginger, garlic, tomato and spices."
+      },
+      {
+        "step": 4,
+        "title": "Combine",
+        "description": "Add cooked lentils and simmer until thick and creamy."
+      },
+      {
+        "step": 5,
+        "title": "Finish",
+        "description": "Add butter, cream and kasuri methi; adjust salt."
+      }
+    ],
+    "tags": [
+      "dal",
+      "lentils",
+      "indian",
+      "vegetarian",
+      "comfort-food"
+    ]
+  },
+  {
+    "_id": "PB001",
+    "name": "Pav Bhaji",
+    "slug": "pav-bhaji",
+    "description": "Mumbai-style spiced mashed vegetable bhaji served with butter-toasted pav.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Mumbai",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pav_bhaji.jpg",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pav_bhaji.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Dforest"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 120,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PEAS",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PAV",
+        "quantity": 8,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PAV_BHAJI_MASALA",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_KASHMIRI_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 20,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_LEMON",
+        "quantity": 1,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 7,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil vegetables",
+        "description": "Boil potato, peas and other vegetables until soft."
+      },
+      {
+        "step": 2,
+        "title": "Make base",
+        "description": "Cook onion, ginger, garlic, capsicum and tomatoes."
+      },
+      {
+        "step": 3,
+        "title": "Mash",
+        "description": "Add boiled vegetables and mash everything together."
+      },
+      {
+        "step": 4,
+        "title": "Season",
+        "description": "Add pav bhaji masala, chilli and salt; cook until thick."
+      },
+      {
+        "step": 5,
+        "title": "Toast pav",
+        "description": "Toast pav with butter on a hot pan."
+      },
+      {
+        "step": 6,
+        "title": "Serve",
+        "description": "Serve hot bhaji with buttered pav, coriander and lemon."
+      }
+    ],
+    "tags": [
+      "street-food",
+      "mumbai",
+      "vegetarian",
+      "quick"
+    ]
+  },
+  {
+    "_id": "HDB001",
+    "name": "Hyderabadi Dum Biryani",
+    "slug": "hyderabadi-dum-biryani",
+    "description": "Aromatic vegetarian Hyderabadi-style dum biryani with basmati rice, vegetables, herbs and whole spices.",
+    "baseServings": 4,
+    "prepTime": 30,
+    "cookTime": 50,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Hyderabadi",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hyderabadi_Dum_Ki_Biryani.JPG",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyderabadi_Dum_Ki_Biryani.JPG",
+      "license": "CC0 1.0",
+      "attribution": "Miansari66"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 350,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MINT",
+        "quantity": 25,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 25,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CINNAMON",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARDAMOM",
+        "quantity": 4,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CLOVE",
+        "quantity": 5,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BAY_LEAF",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_BIRYANI_MASALA",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SAFFRON",
+        "quantity": 0.2,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 25,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prepare rice",
+        "description": "Rinse and partially cook basmati rice with whole spices and salt."
+      },
+      {
+        "step": 2,
+        "title": "Prepare masala",
+        "description": "Cook onion, tomato, ginger, garlic, chilli and spices with yogurt."
+      },
+      {
+        "step": 3,
+        "title": "Layer",
+        "description": "Layer rice, masala, mint, coriander and fried onion."
+      },
+      {
+        "step": 4,
+        "title": "Dum cook",
+        "description": "Cover tightly and cook on low heat until aromatic and fully cooked."
+      },
+      {
+        "step": 5,
+        "title": "Serve",
+        "description": "Rest briefly, fluff gently and serve hot."
+      }
+    ],
+    "tags": [
+      "biryani",
+      "hyderabadi",
+      "rice",
+      "vegetarian"
+    ]
+  },
+  {
+    "_id": "CPP001",
+    "name": "Creamy Pesto Pasta",
+    "slug": "creamy-pesto-pasta",
+    "description": "Creamy pasta tossed with basil pesto, parmesan and black pepper.",
+    "baseServings": 4,
+    "prepTime": 10,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Italian",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Green_Pesto_Pasta.jpg",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Pesto_Pasta.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Allen Marx 12"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PASTA",
+        "quantity": 350,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PESTO",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CREAM",
+        "quantity": 150,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PARMESAN",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BLACK_PEPPER",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 7,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_BASIL",
+        "quantity": 15,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil pasta",
+        "description": "Cook pasta in salted water until al dente."
+      },
+      {
+        "step": 2,
+        "title": "Prepare sauce",
+        "description": "Warm butter and garlic, then add cream and pesto."
+      },
+      {
+        "step": 3,
+        "title": "Combine",
+        "description": "Toss cooked pasta with the creamy pesto sauce."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "description": "Add parmesan and black pepper; loosen with pasta water if needed."
+      }
+    ],
+    "tags": [
+      "pasta",
+      "italian",
+      "vegetarian",
+      "quick"
+    ]
+  },
+  {
+    "_id": "SMO001",
+    "name": "Spicy Masala Oats",
+    "slug": "spicy-masala-oats",
+    "description": "Savory oats cooked with vegetables and Indian spices.",
+    "baseServings": 2,
+    "prepTime": 5,
+    "cookTime": 10,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Indian Fusion",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/MASALA_OATS.JPG",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MASALA_OATS.JPG",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Mkr.lines"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_OATS",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PEAS",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 2,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 10,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Temper",
+        "description": "Heat oil and crackle cumin."
+      },
+      {
+        "step": 2,
+        "title": "Cook vegetables",
+        "description": "Add onion, ginger, chilli and vegetables; cook until slightly soft."
+      },
+      {
+        "step": 3,
+        "title": "Add spices",
+        "description": "Add turmeric, chilli powder and salt."
+      },
+      {
+        "step": 4,
+        "title": "Cook oats",
+        "description": "Add oats and water; cook until creamy and tender."
+      },
+      {
+        "step": 5,
+        "title": "Serve",
+        "description": "Finish with coriander and serve hot."
+      }
+    ],
+    "tags": [
+      "oats",
+      "breakfast",
+      "healthy",
+      "quick",
+      "vegetarian"
+    ]
+  },
+  {
+    "_id": "CP001",
+    "name": "Classic Pancakes",
+    "slug": "classic-pancakes",
+    "description": "Soft, fluffy breakfast pancakes made with flour, milk, egg and vanilla.",
+    "baseServings": 4,
+    "prepTime": 10,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "American",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pancakes_(1).jpg",
+    "imageSource": {
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancakes_(1).jpg",
+      "license": "Public Domain / CC0 Public Domain Mark",
+      "attribution": "Renee Comet / National Cancer Institute"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_FLOUR",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MILK",
+        "quantity": 250,
+        "unit": "ml",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_EGG",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SUGAR",
+        "quantity": 25,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 30,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BAKING_POWDER",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 2,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_VANILLA",
+        "quantity": 5,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Mix dry ingredients",
+        "description": "Whisk flour, sugar, baking powder and salt."
+      },
+      {
+        "step": 2,
+        "title": "Add wet ingredients",
+        "description": "Add milk, eggs and vanilla; mix until just combined."
+      },
+      {
+        "step": 3,
+        "title": "Heat pan",
+        "description": "Heat a lightly buttered non-stick pan."
+      },
+      {
+        "step": 4,
+        "title": "Cook pancakes",
+        "description": "Pour batter and cook until bubbles form, then flip and cook the other side."
+      },
+      {
+        "step": 5,
+        "title": "Serve",
+        "description": "Serve warm with your preferred topping."
+      }
+    ],
+    "tags": [
+      "breakfast",
+      "pancakes",
+      "american",
+      "vegetarian"
+    ]
+  }
+]

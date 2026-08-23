@@ -76,6 +76,7 @@ export class PackOptimizer {
         requiredQuantity: reqIng.requiredQuantity,
         unit: reqIng.unit,
         required: reqIng.required !== false,
+        critical: reqIng.critical !== false,
         matchedProducts,
         alternatives,
         substitutionOccurred,
