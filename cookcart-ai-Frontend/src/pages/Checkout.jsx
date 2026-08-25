@@ -2,12 +2,10 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
-import toast from 'react-hot-toast'
 import { ArrowRight, Bike, CheckCircle2, ChevronDown, Clock, CreditCard, Landmark, MapPin, Phone, User as UserIcon, Zap } from 'lucide-react'
 import { useCart } from '../hooks/useCart.js'
 import { useRecipe } from '../hooks/useRecipe.js'
 import { useAuth } from '../hooks/useAuth.js'
-import { placeOrder } from '../api/orderApi.js'
 import { fadeUp } from '../utils/animations.js'
 import { formatCurrency, pluralize } from '../utils/helpers.js'
 import { DELIVERY_FEE, EXPRESS_DELIVERY_FEE, PACKAGING_FEE } from '../utils/constants.js'
@@ -42,7 +40,7 @@ export default function Checkout() {
   const navigate = useNavigate()
   const { items, totals, clearCart } = useCart()
   const { activeRecipe } = useRecipe()
-  const { user: authUser, isAuthenticated } = useAuth()
+  const { user: authUser } = useAuth()
   const [deliveryMethod, setDeliveryMethod] = useState('express')
   const [paymentMethod, setPaymentMethod] = useState('upi')
   const [placing, setPlacing] = useState(false)
@@ -63,35 +61,15 @@ export default function Checkout() {
   const activeFee = DELIVERY_OPTIONS.find((option) => option.id === deliveryMethod)?.price ?? DELIVERY_FEE
   const grandTotal = totals.total + activeFee + PACKAGING_FEE
 
-  const onSubmit = async (values) => {
-    if (!isAuthenticated) {
-      toast.error('Please sign in to place an order')
-      navigate('/login', { state: { from: { pathname: '/checkout' } } })
-      return
-    }
-
+  const onSubmit = async () => {
     setPlacing(true)
     try {
-      const order = await placeOrder({
-        items,
-        address: {
-          name: values.name,
-          phone: values.phone,
-          line1: values.line1,
-          line2: values.line2,
-        },
-        recipeId: activeRecipe?.id ?? activeRecipe?.recipe_id,
-        deliveryMethod,
-        paymentMethod,
-        deliveryFee: activeFee,
-        packagingFee: PACKAGING_FEE,
-      })
+      // Simulate order creation
+      await new Promise(resolve => setTimeout(resolve, 1200))
       clearCart()
-      toast.success('Order placed successfully!')
-      navigate('/tracking', { state: { orderId: order._id } })
+      navigate('/tracking')
     } catch (error) {
       console.error('Order creation failed:', error)
-      toast.error(error.response?.data?.error ?? 'Could not place your order. Please try again.')
     } finally {
       setPlacing(false)
     }
