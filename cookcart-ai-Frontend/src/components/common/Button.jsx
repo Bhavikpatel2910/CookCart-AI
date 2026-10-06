@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const VARIANTS = {
   primary:
-    'bg-success-veg text-on-primary shadow-glow-green hover:bg-secondary hover:shadow-glow-green-lg',
+    'btn-gradient text-on-primary shadow-glow-green hover:shadow-glow-green-lg',
   secondary:
     'bg-surface-container-lowest text-on-surface border-[1.5px] border-on-surface hover:bg-surface-container-low',
   ghost:
@@ -36,7 +36,7 @@ export default function Button({
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.97 }}
       transition={{ duration: 0.2 }}
-      className={`inline-flex items-center justify-center gap-2 rounded-[16px] font-semibold transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-veg/50 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-[16px] font-semibold transition-all duration-200 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-success-veg/50 ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
       {...props}
     >
       {Icon && iconPosition === 'left' ? <Icon size={18} /> : null}

@@ -49,3 +49,13 @@ export function formatTime(date) {
     minute: '2-digit',
   })
 }
+
+// e.g. "5 Oct 2026, 7:42 pm" — the order's real date and time, in the user's locale.
+export function formatDateTime(date) {
+  if (!date) return '—'
+  const d = new Date(date)
+  if (Number.isNaN(d.getTime())) return '—'
+  const day = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+  const time = d.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true })
+  return `${day}, ${time}`
+}

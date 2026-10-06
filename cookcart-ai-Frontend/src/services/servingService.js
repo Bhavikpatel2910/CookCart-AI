@@ -52,6 +52,7 @@ export async function calculateRecipeIngredients(recipe, servings) {
         ingredientId: ingRef.ingredient_id,
         ingredientName: ingredient?.canonical_name || ingRef.ingredient_id,
         ingredientCategory: ingredient?.category,
+        ingredientImage: ingredient?.imageUrl || ingredient?.image || null,
         isPantryStaple: ingRef.pantry_staple || false,
         requiredQuantity: scaledQuantity,
         requiredUnit: unit,

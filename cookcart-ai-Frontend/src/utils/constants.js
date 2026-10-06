@@ -10,7 +10,6 @@ export const BRAND = {
 export const NAV_LINKS = [
   { id: 'home', label: 'Home', to: '/' },
   { id: 'categories', label: 'Categories', to: '/recipes' },
-  { id: 'chef', label: 'AI Chef', to: '/chef' },
   { id: 'recipes', label: 'Recipes', to: '/recipes' },
 ]
 

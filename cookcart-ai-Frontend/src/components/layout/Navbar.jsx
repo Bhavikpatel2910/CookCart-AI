@@ -19,7 +19,6 @@ import { BRAND } from '../../utils/constants.js'
 const LINKS = [
   { id: 'home', label: 'Home', to: '/', icon: Home },
   { id: 'categories', label: 'Categories', to: '/recipes', icon: LayoutGrid },
-  { id: 'chef', label: 'AI Chef', to: '/chef', icon: ChefHat },
   { id: 'recipes', label: 'Recipes', to: '/recipes', icon: Soup },
   { id: 'pantry', label: 'Pantry', to: '/pantry', icon: Soup },
   { id: 'orders', label: 'Orders', to: '/orders', icon: Package },
@@ -56,7 +55,7 @@ export default function Navbar() {
       <div className="max-w-page mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-          <span className="w-10 h-10 rounded-2xl bg-success-veg text-white flex items-center justify-center shadow-glow-green transition-transform group-hover:scale-105">
+          <span className="w-10 h-10 rounded-2xl btn-gradient text-white flex items-center justify-center shadow-glow-green transition-transform group-hover:scale-105 group-hover:-rotate-6">
             <ChefHat size={22} strokeWidth={1.75} />
           </span>
           <span className="hidden sm:flex flex-col leading-none">
@@ -93,7 +92,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             to="/cart"
-            className="relative hidden md:inline-flex items-center gap-2 bg-surface-container-low hover:bg-surface-container-high text-on-surface text-label-md font-semibold px-4 py-2 rounded-full transition-colors"
+            className="relative hidden md:inline-flex items-center gap-2 bg-white border border-border-light shadow-sm hover:shadow-md hover:border-success-veg/40 text-on-surface text-label-md font-semibold px-4 py-2 rounded-full transition-all"
           >
             <ShoppingCart size={18} strokeWidth={1.75} />
             <span className="hidden xl:inline">My Cart</span>
@@ -127,7 +126,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <span className="w-full h-full bg-success-veg text-white text-label-md font-bold flex items-center justify-center">
+                <span className="w-full h-full btn-gradient text-white text-label-md font-bold flex items-center justify-center">
                   {authUser?.initials ?? 'U'}
                 </span>
               )}

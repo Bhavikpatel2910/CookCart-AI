@@ -1,69 +1,79 @@
-import { loadDataset } from './datasetApi.js';
-import { getRecipeImageUrl, getProductImageUrl } from '../utils/imageUtils.js';
+import api from '../services/api.js';
+import { getCurrentUserFromStorage } from './userApi.js';
 
-export async function getOrderById(orderId) {
-  const dataset = await loadDataset();
-  return dataset.orders.find(o => o.order_id === orderId) || null;
+function currentUserId(explicit) {
+  if (explicit) return explicit;
+  return getCurrentUserFromStorage()?.user_id ?? null;
 }
 
-export async function getOrdersByUser(userId) {
-  const dataset = await loadDataset();
-  return dataset.orders.filter(o => o.user_id === userId);
-}
-
-export async function getAllOrders() {
-  const dataset = await loadDataset();
-  return dataset.orders;
-}
-
-// Join an order with its recipe and products so the UI can render real names
-// and images instead of generic placeholders.
-export async function enrichOrders(orders) {
-  const dataset = await loadDataset();
-  const recipeIndex = new Map(dataset.recipes.map((r) => [r.recipe_id, r]));
-  const productIndex = new Map(dataset.products.map((p) => [p.sku_id, p]));
-
-  return orders.map((order) => {
-    const recipe = recipeIndex.get(order.recipe_id);
-    const itemDetails = (order.items || []).map((it) => {
-      const product = productIndex.get(it.sku_id);
-      return {
-        sku_id: it.sku_id,
-        name: product?.product_name ?? 'Item',
-        brand: product?.brand ?? null,
-        image: product ? getProductImageUrl(product) : null,
-        quantity: it.quantity,
-        unit_price: it.unit_price,
-        lineTotal: (it.unit_price || 0) * (it.quantity || 1),
-      };
-    });
-    return {
-      ...order,
-      recipeName: recipe?.name ?? 'Order',
-      recipeSlug: recipe?.slug ?? null,
-      recipeImage: recipe ? getRecipeImageUrl(recipe) : null,
-      dishCategory: recipe?.dish_category ?? null,
-      itemDetails,
-      itemCount: (order.items || []).reduce((sum, it) => sum + (it.quantity || 0), 0),
-    };
-  });
-}
-
-export async function getAllOrdersDisplay() {
-  const orders = await getAllOrders();
-  return enrichOrders(orders).then((list) =>
-    // Most recent first
-    [...list].sort((a, b) => (b.created_at || '').localeCompare(a.created_at || '')),
-  );
-}
-
-export async function getOrderDisplay(orderId) {
-  const orders = await getAllOrders();
-  const order =
-    (orderId && orders.find((o) => o.order_id === orderId)) || orders[0];
+// Convert a server order into the display shape the order pages render.
+export function mapServerOrder(order) {
   if (!order) return null;
-  const [enriched] = await enrichOrders([order]);
-  return enriched;
+  const pricing = order.pricing || {};
+  const itemDetails = (order.items || []).map((item) => ({
+    sku_id: item.skuId,
+    name: item.name,
+    brand: item.brand ?? null,
+    image: item.image ?? null,
+    packSize: item.packSize ?? null,
+    quantity: item.quantity,
+    unit_price: item.unitPrice,
+    lineTotal: item.lineTotal,
+  }));
+  return {
+    order_id: order.orderId,
+    user_id: order.userId,
+    recipe_id: order.recipeId,
+    recipeName: order.recipeName || 'Grocery order',
+    recipeSlug: order.recipeSlug || null,
+    recipeImage: order.recipeImage || null,
+    servings: order.servings ?? null,
+    created_at: order.placedAt || order.createdAt,
+    delivery_status: order.status,
+    status: order.status,
+    subtotal: pricing.subtotal ?? 0,
+    discount: pricing.pantrySavings ?? 0,
+    delivery_fee: pricing.deliveryFee ?? 0,
+    packaging_fee: pricing.packagingFee ?? 0,
+    total: pricing.total ?? 0,
+    delivery_method: order.delivery?.method,
+    payment_method: order.payment?.method,
+    address: order.address || null,
+    itemDetails,
+    itemCount: itemDetails.reduce((sum, it) => sum + (it.quantity || 0), 0),
+  };
+}
+
+// Persist a new order for the signed-in user. Rejects if the server is down so
+// the caller can keep the basket instead of silently losing it.
+export async function placeOrder(payload) {
+  const { data } = await api.post('/orders', payload);
+  return mapServerOrder(data.order);
+}
+
+// The signed-in user's order history, newest first.
+export async function getAllOrdersDisplay(userId) {
+  const id = currentUserId(userId);
+  if (!id) return [];
+  const { data } = await api.get('/orders', { params: { userId: id } });
+  return (data.orders || []).map(mapServerOrder);
+}
+
+// One order of the signed-in user; with no id, their most recent order.
+export async function getOrderDisplay(orderId, userId) {
+  const id = currentUserId(userId);
+  if (!id) return null;
+  if (!orderId) {
+    const all = await getAllOrdersDisplay(id);
+    return all[0] || null;
+  }
+  try {
+    const { data } = await api.get(`/orders/${encodeURIComponent(orderId)}`, { params: { userId: id } });
+    return mapServerOrder(data.order);
+  } catch (error) {
+    if (error.response?.status === 404) return null;
+    throw error;
+  }
 }
 
 export const ORDER_STATUSES = [

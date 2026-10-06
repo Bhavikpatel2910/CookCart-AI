@@ -26,7 +26,7 @@ import { useApp } from '../context/AppContext.jsx'
 import { fadeUp, staggerContainer } from '../utils/animations.js'
 import SmartImage from '../components/common/SmartImage.jsx'
 
-const SUGGESTIONS = ['Paneer Butter Masala', 'Biryani', 'Pav Bhaji', 'Pasta']
+const SUGGESTIONS = ['Aloo Paratha', 'Biryani', 'Pav Bhaji', 'Pasta']
 
 const CATEGORY_ICONS = {
   vegetables: Carrot,
@@ -38,7 +38,7 @@ const CATEGORY_ICONS = {
 }
 
 const FLOW = [
-  { icon: SearchBarIcon, title: 'Search any dish', text: 'Craving it? Type it. Your AI chef takes it from there.' },
+  { icon: SearchBarIcon, title: 'Search any dish', text: 'Craving it? Type it. We build the exact ingredient list.' },
   { icon: Sparkles, title: 'AI builds the recipe', text: 'Smart servings, exact quantities and zero guesswork.' },
   { icon: ShoppingBasketIcon, title: 'Get ingredients', text: 'Every item added to your cart in one tap.' },
   { icon: ChefHat, title: 'Cook with guidance', text: 'Step-by-step cooking mode while your timer runs.' },
@@ -74,11 +74,11 @@ export default function Home() {
   const [query, setQuery] = useState('')
 
   const handleSearch = (value) => {
-    navigate(`/search?q=${encodeURIComponent(value || 'Paneer Butter Masala')}`)
+    navigate(`/search?q=${encodeURIComponent(value || 'Aloo Paratha')}`)
   }
 
   const featuredRecipes = recipes.slice(0, 4)
-  const heroRecipe = recipes.find((r) => r.slug === 'paneer-butter-masala') || recipes[0]
+  const heroRecipe = recipes.find((r) => r.slug === 'aloo-paratha') || recipes[0]
 
   if (recipesLoading) {
     return (
@@ -96,7 +96,7 @@ export default function Home() {
       <section className="relative rounded-[28px] overflow-hidden shadow-large bg-brand-dark">
         <div className="absolute inset-0">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-success-veg/25 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-primary-fixed/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-saffron/25 rounded-full blur-3xl" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/75 to-brand-dark/40" />
         </div>
 
@@ -193,7 +193,7 @@ export default function Home() {
                     <p className="font-display text-white font-bold text-2xl">{heroRecipe?.name ?? 'Featured dish'}</p>
                   </div>
                   <Link
-                    to="/recipe/paneer-butter-masala"
+                    to={`/recipe/${heroRecipe?.slug ?? 'aloo-paratha'}`}
                     className="bg-success-veg text-white rounded-full p-3 hover:scale-110 transition-transform shadow-glow-green"
                     aria-label="View recipe"
                   >

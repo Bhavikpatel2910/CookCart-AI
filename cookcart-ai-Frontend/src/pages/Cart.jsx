@@ -6,7 +6,9 @@ import CartItem from '../components/cart/CartItem.jsx'
 import CartSummary from '../components/cart/CartSummary.jsx'
 import Button from '../components/common/Button.jsx'
 import SmartImage from '../components/common/SmartImage.jsx'
+import toast from 'react-hot-toast'
 import { useCart } from '../hooks/useCart.js'
+import { useAuth } from '../hooks/useAuth.js'
 import { useApp } from '../context/AppContext.jsx'
 import { fadeUp, staggerContainer } from '../utils/animations.js'
 
@@ -14,9 +16,19 @@ export default function Cart() {
   const navigate = useNavigate()
   const { items, totals, updateQuantity, removeItem, setPantry, clearCart } = useCart()
   const { recipes } = useApp()
+  const { isAuthenticated } = useAuth()
 
   const pantryCount = useMemo(() => items.filter((item) => item.fromPantry).length, [items])
   const suggestions = useMemo(() => recipes.slice(0, 2), [recipes])
+
+  const handlePlaceOrder = () => {
+    if (!isAuthenticated) {
+      toast('Please sign in to place your order')
+      navigate('/login', { state: { from: { pathname: '/checkout' } } })
+      return
+    }
+    navigate('/checkout')
+  }
 
   if (!items.length) {
     return (
@@ -131,7 +143,7 @@ export default function Cart() {
 
         {/* Summary column */}
         <div className="lg:col-span-4">
-          <CartSummary items={items} totals={totals} className="lg:sticky lg:top-28" />
+          <CartSummary items={items} totals={totals} onCheckout={handlePlaceOrder} className="lg:sticky lg:top-28" />
         </div>
       </div>
     </div>

@@ -2,8 +2,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { getCartFromStorage, saveCartToStorage } from '../api/cartApi.js';
+import { saveCartToServer } from '../api/userApi.js';
+import { useAuth as useAuthState } from '../hooks/useAuth.js';
 import { calculateCartTotal } from '../utils/priceUtils.js';
 import {
+  normalizeCartItem,
   addItemToCart,
   removeItemFromCart,
   updateItemQuantity,
@@ -27,6 +30,11 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState(() => getCartFromStorage());
   const [hydrated, setHydrated] = useState(false);
   const addingRef = useRef(new Set())
+  const { user: authUser, serverUser, syncStatus } = useAuthState()
+  const userId = authUser?.user_id ?? null
+  // The server cart is merged once per signed-in user; pushes only start after that.
+  const mergedForRef = useRef(null)
+  const [serverReady, setServerReady] = useState(false)
 
   useEffect(() => {
     setItems(getCartFromStorage());
@@ -76,11 +84,47 @@ export function CartProvider({ children }) {
     setItems(clearCart());
   }, []);
 
+  // When the user's DB record arrives, merge their saved cart into the local one.
+  useEffect(() => {
+    if (!hydrated) return
+    if (!userId) {
+      // Signed out: don't leave the previous user's basket on this device.
+      if (mergedForRef.current) setItems([])
+      mergedForRef.current = null
+      setServerReady(false)
+      return
+    }
+    if (syncStatus !== 'synced' || !serverUser || mergedForRef.current === userId) return
+    mergedForRef.current = userId
+    const remote = (serverUser.cart || []).map((raw) => normalizeCartItem(raw)).filter(Boolean)
+    setItems((local) => {
+      const merged = [...local]
+      for (const item of remote) {
+        if (!merged.some((m) => m.skuId === item.skuId)) merged.push(item)
+      }
+      return merged
+    })
+    setServerReady(true)
+  }, [hydrated, userId, syncStatus, serverUser])
+
+  // Keep the database copy of the cart up to date (debounced).
+  useEffect(() => {
+    if (!serverReady || !userId) return undefined
+    const timer = setTimeout(() => {
+      saveCartToServer(userId, items).catch((error) =>
+        console.warn('Could not save cart to the database:', error?.message),
+      )
+    }, 800)
+    return () => clearTimeout(timer)
+  }, [items, serverReady, userId])
+
   const addRecipeIngredients = useCallback(
-    async (scaledIngredients, recipeId) => {
-      const updated = await addRecipeIngredientsToCart(items, scaledIngredients, recipeId);
+    async (scaledIngredients, recipeId, { silent = false } = {}) => {
+      // Re-adding the same recipe replaces its lines instead of doubling them.
+      const base = recipeId ? items.filter((item) => item.recipeId !== recipeId) : items;
+      const updated = await addRecipeIngredientsToCart(base, scaledIngredients, recipeId);
       setItems(updated);
-      toast.success('Recipe ingredients added to cart');
+      if (!silent) toast.success('Recipe ingredients added to cart');
       return updated;
     },
     [items],

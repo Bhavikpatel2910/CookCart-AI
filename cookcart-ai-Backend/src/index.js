@@ -20,6 +20,8 @@ import sessionRoutes from "./routes/sessionRoutes.js";
 import pantryRoutes from "./routes/pantryRoutes.js";
 import ingredientRoutes from "./routes/ingredientRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/search", searchRoutes);
@@ -28,6 +30,8 @@ app.use("/api/recipe-session", sessionRoutes);
 app.use("/api/pantry", pantryRoutes);
 app.use("/api/ingredients", ingredientRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.get("/api/health", (req, res) => {
   res

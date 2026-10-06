@@ -15,7 +15,6 @@ import { CartGuard } from './components/common/RecipeGuard.jsx'
 
 const Home = lazy(() => import('./pages/Home.jsx'))
 const Recipes = lazy(() => import('./pages/Recipes.jsx'))
-const Chef = lazy(() => import('./pages/Chef.jsx'))
 const SearchResults = lazy(() => import('./pages/SearchResults.jsx'))
 const RecipeOverview = lazy(() => import('./pages/RecipeOverview.jsx'))
 const IngredientReview = lazy(() => import('./pages/IngredientReview.jsx'))
@@ -73,7 +72,6 @@ export default function App() {
                   <Route element={<Layout />}>
                     <Route path="/" element={withSuspense(Home)} />
                     <Route path="/recipes" element={withSuspense(Recipes)} />
-                    <Route path="/chef" element={withSuspense(Chef)} />
                     <Route path="/search" element={withSuspense(SearchResults)} />
                     <Route path="/search/:query" element={withSuspense(SearchResults)} />
                     <Route path="/recipe/:slug" element={withSuspense(RecipeOverview)} />

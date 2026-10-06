@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowRight, PackageCheck, RotateCcw } from 'lucide-react'
 import SmartImage from '../components/common/SmartImage.jsx'
 import EmptyState from '../components/common/EmptyState.jsx'
-import { formatCurrency, formatTime } from '../utils/helpers.js'
+import { formatCurrency, formatDateTime } from '../utils/helpers.js'
 import { getOrderDisplay, STATUS_LABEL } from '../api/orderApi.js'
 
 function money(value) {
@@ -78,7 +78,7 @@ export default function OrderDetails() {
                 </h1>
                 <p className="text-label-sm text-success-veg">
                   {status}
-                  {order.created_at ? ` · ${formatTime(order.created_at)}, ${new Date(order.created_at).toLocaleDateString('en-IN')}` : ''}
+                  {order.created_at ? ` · ${formatDateTime(order.created_at)}` : ''}
                 </p>
               </div>
             </div>

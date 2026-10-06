@@ -5,7 +5,6 @@ import { BRAND } from '../../utils/constants.js'
 const EXPLORE = [
   { label: 'Home', to: '/' },
   { label: 'Recipes', to: '/recipes' },
-  { label: 'AI Chef', to: '/chef' },
   { label: 'My Cart', to: '/cart' },
   { label: 'My Profile', to: '/profile' },
   { label: 'Favorites', to: '/favorites' },

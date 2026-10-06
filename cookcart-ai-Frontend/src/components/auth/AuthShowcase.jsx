@@ -4,7 +4,7 @@ import SmartImage from '../common/SmartImage.jsx'
 
 const PERKS = [
   { icon: Truck, text: 'Ingredients in ~10 minutes, live tracked' },
-  { icon: Sparkles, text: 'AI Chef suggests recipes for your pantry' },
+  { icon: Sparkles, text: 'Smart ingredient lists sized for your servings' },
   { icon: UtensilsCrossed, text: 'Step-by-step guided cooking mode' },
 ]
 
@@ -47,9 +47,9 @@ export default function AuthShowcase() {
 
       <div className="relative z-10 mt-12 rounded-2xl overflow-hidden border border-white/20 shadow-2xl max-w-md">
         <SmartImage
-          src={{ name: 'Paneer Butter Masala' }}
+          src="/images/recipes/aloo-paratha.jpeg"
           kind="recipe"
-          alt="Paneer Butter Masala"
+          alt="Aloo Paratha"
           className="w-full h-44 object-cover bg-surface"
         />
       </div>

@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { ArrowRight, Bike, CheckCircle2, ChevronDown, Clock, CreditCard, Landmark, MapPin, Phone, User as UserIcon, Zap } from 'lucide-react'
 import { useCart } from '../hooks/useCart.js'
-import { useRecipe } from '../hooks/useRecipe.js'
+import { useApp } from '../context/AppContext.jsx'
+import { placeOrder } from '../api/orderApi.js'
 import { useAuth } from '../hooks/useAuth.js'
 import { fadeUp } from '../utils/animations.js'
 import { formatCurrency, pluralize } from '../utils/helpers.js'
@@ -38,9 +40,34 @@ const PAYMENT_OPTIONS = [
 
 export default function Checkout() {
   const navigate = useNavigate()
-  const { items, totals, clearCart } = useCart()
-  const { activeRecipe } = useRecipe()
-  const { user: authUser } = useAuth()
+  const location = useLocation()
+  const { items, clearCart } = useCart()
+  const { recipes } = useApp()
+  const { user: authUser, isAuthenticated } = useAuth()
+
+  // Orders need a signed-in user so they can be saved to (and listed from) the database.
+  useEffect(() => {
+    if (!isAuthenticated) {
+      toast('Please sign in to place your order')
+      navigate('/login', { replace: true, state: { from: location } })
+    }
+  }, [isAuthenticated, navigate, location])
+
+  // Items marked "already in pantry" aren't bought, so they aren't ordered or charged.
+  const buyItems = useMemo(() => items.filter((item) => !item.fromPantry), [items])
+  const itemsTotal = useMemo(
+    () => buyItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [buyItems],
+  )
+  const pantryCount = items.length - buyItems.length
+
+  // The order belongs to the recipe most of the basket was added for.
+  const orderRecipe = useMemo(() => {
+    const counts = new Map()
+    buyItems.forEach((item) => item.recipeId && counts.set(item.recipeId, (counts.get(item.recipeId) || 0) + 1))
+    const topId = [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]
+    return recipes.find((r) => r.recipeId === topId) || null
+  }, [buyItems, recipes])
   const [deliveryMethod, setDeliveryMethod] = useState('express')
   const [paymentMethod, setPaymentMethod] = useState('upi')
   const [placing, setPlacing] = useState(false)
@@ -59,31 +86,57 @@ export default function Checkout() {
   })
 
   const activeFee = DELIVERY_OPTIONS.find((option) => option.id === deliveryMethod)?.price ?? DELIVERY_FEE
-  const grandTotal = totals.total + activeFee + PACKAGING_FEE
+  const grandTotal = itemsTotal + activeFee + PACKAGING_FEE
 
-  const onSubmit = async () => {
+  const onSubmit = async (form) => {
+    if (placing || !authUser) return
     setPlacing(true)
     try {
-      // Simulate order creation
-      await new Promise(resolve => setTimeout(resolve, 1200))
+      const order = await placeOrder({
+        userId: authUser.user_id,
+        items: buyItems.map((item) => ({
+          skuId: item.skuId,
+          name: item.name,
+          brand: item.brand,
+          image: item.image,
+          packSize: item.packSize,
+          quantity: item.quantity,
+          unitPrice: item.price,
+        })),
+        recipe: orderRecipe
+          ? { id: orderRecipe.recipeId, name: orderRecipe.name, slug: orderRecipe.slug, image: orderRecipe.image, servings: orderRecipe.baseServings ?? orderRecipe.servings }
+          : {},
+        delivery: {
+          method: deliveryMethod,
+          fee: activeFee,
+          etaMinutes: deliveryMethod === 'express' ? 15 : 30,
+        },
+        payment: { method: paymentMethod },
+        packagingFee: PACKAGING_FEE,
+        address: { name: form.name, phone: form.phone, line1: form.line1, line2: form.line2 },
+      })
       clearCart()
-      navigate('/tracking')
+      toast.success('Order placed! 🎉')
+      navigate(`/delivery/${order.order_id}`, { replace: true })
     } catch (error) {
       console.error('Order creation failed:', error)
+      toast.error(
+        error.response?.data?.error || 'We could not place your order. Your cart is safe — please try again.',
+      )
     } finally {
       setPlacing(false)
     }
   }
 
-  const isFormValid = isValid && items.length > 0
+  const isFormValid = isValid && buyItems.length > 0
 
   return (
     <div className="max-w-page mx-auto px-4 md:px-8 py-8 md:py-12">
       <motion.div variants={fadeUp} initial="hidden" animate="show" className="mb-8">
         <h1 className="font-display text-3xl md:text-[40px] font-bold text-on-surface">Checkout</h1>
         <p className="text-body-md text-on-surface-variant mt-1">
-          {items.length} {pluralize(items.length, 'item')} ·{' '}
-          {activeRecipe?.name ?? 'Your order'} for {activeRecipe?.servings ?? '–'} people
+          {buyItems.length} {pluralize(buyItems.length, 'item')} · {orderRecipe?.name ?? 'Your grocery order'}
+          {pantryCount > 0 && ` · ${pantryCount} already in your pantry`}
         </p>
       </motion.div>
 
@@ -252,7 +305,7 @@ export default function Checkout() {
               Order Summary
             </h2>
             <div className="max-h-64 overflow-y-auto no-scrollbar flex flex-col gap-3 pr-1">
-              {items.map((item) => (
+              {buyItems.map((item) => (
                 <div key={item.skuId ?? item.id} className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg bg-surface-container-lowest overflow-hidden shrink-0 relative border border-border-light/50">
                     <SmartImage src={item.image} alt={item.name} kind="product" className="w-full h-full object-cover" />
@@ -273,14 +326,8 @@ export default function Checkout() {
             <div className="flex flex-col gap-3 mt-6 pt-5 border-t border-border-light">
               <div className="flex justify-between text-body-md text-on-surface-variant">
                 <span>Items total</span>
-                <span className="text-on-surface">{formatCurrency(totals.subtotal)}</span>
+                <span className="text-on-surface">{formatCurrency(itemsTotal)}</span>
               </div>
-              {totals.pantrySavings > 0 && (
-                <div className="flex justify-between text-body-md text-success-veg">
-                  <span>Pantry savings</span>
-                  <span>-{formatCurrency(totals.pantrySavings)}</span>
-                </div>
-              )}
               <div className="flex justify-between text-body-md text-on-surface-variant">
                 <span>Delivery fee</span>
                 <span className={activeFee === 0 ? 'text-success-veg font-semibold' : 'text-on-surface'}>

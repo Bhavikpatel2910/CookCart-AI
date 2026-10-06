@@ -102,8 +102,8 @@ export default function CookingMode() {
         </h1>
         <p className="text-white/70 max-w-md mb-8">
           We're still writing the guided recipe for this dish. Try{' '}
-          <button type="button" className="text-accent-green underline underline-offset-4" onClick={() => navigate('/recipe/paneer-butter-masala')}>
-            Paneer Butter Masala
+          <button type="button" className="text-accent-green underline underline-offset-4" onClick={() => navigate('/recipe/aloo-paratha')}>
+            Aloo Paratha
           </button>{' '}
           for a full cooking experience.
         </p>

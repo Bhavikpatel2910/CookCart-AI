@@ -10,7 +10,8 @@
     "category": "Dairy",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/paneer.jpg"
   },
   {
     "_id": "ING_TOMATO",
@@ -22,7 +23,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/tomato.jpg"
   },
   {
     "_id": "ING_BUTTER",
@@ -34,7 +36,8 @@
     "category": "Dairy",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/butter.jpg"
   },
   {
     "_id": "ING_CREAM",
@@ -47,7 +50,8 @@
     "category": "Dairy",
     "defaultUnit": "ml",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/fresh-cream.jpg"
   },
   {
     "_id": "ING_ONION",
@@ -59,7 +63,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/onion.jpg"
   },
   {
     "_id": "ING_KASURI_METHI",
@@ -71,7 +76,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/kasuri-methi.jpg"
   },
   {
     "_id": "ING_CAPSICUM",
@@ -83,7 +89,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/capsicum.jpg"
   },
   {
     "_id": "ING_KASHMIRI_CHILLI",
@@ -95,7 +102,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/kashmiri-chilli-powder.jpg"
   },
   {
     "_id": "ING_SALT",
@@ -107,7 +115,8 @@
     "category": "Pantry",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/salt.jpg"
   },
   {
     "_id": "ING_CUMIN",
@@ -119,7 +128,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/cumin.jpg"
   },
   {
     "_id": "ING_TURMERIC",
@@ -131,7 +141,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/turmeric.jpg"
   },
   {
     "_id": "ING_SUGAR",
@@ -143,7 +154,8 @@
     "category": "Pantry",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/sugar.jpg"
   },
   {
     "_id": "ING_GINGER",
@@ -154,7 +166,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/ginger.jpg"
   },
   {
     "_id": "ING_GARLIC",
@@ -165,7 +178,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/garlic.jpg"
   },
   {
     "_id": "ING_GREEN_CHILLI",
@@ -177,7 +191,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/green-chilli.jpg"
   },
   {
     "_id": "ING_CORIANDER",
@@ -190,7 +205,8 @@
     "category": "Herbs",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/coriander.jpg"
   },
   {
     "_id": "ING_GARAM_MASALA",
@@ -201,7 +217,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/garam-masala.jpg"
   },
   {
     "_id": "ING_OIL",
@@ -213,7 +230,8 @@
     "category": "Pantry",
     "defaultUnit": "ml",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/cooking-oil.jpg"
   },
   {
     "_id": "ING_YOGURT",
@@ -225,7 +243,8 @@
     "category": "Dairy",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/yogurt.jpg"
   },
   {
     "_id": "ING_CASHEW",
@@ -237,7 +256,8 @@
     "category": "Nuts",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/cashew.jpg"
   },
   {
     "_id": "ING_CINNAMON",
@@ -249,7 +269,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/cinnamon.jpg"
   },
   {
     "_id": "ING_CARDAMOM",
@@ -261,7 +282,8 @@
     "category": "Spices",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/cardamom.jpg"
   },
   {
     "_id": "ING_CLOVE",
@@ -273,7 +295,8 @@
     "category": "Spices",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/clove.jpg"
   },
   {
     "_id": "ING_BAY_LEAF",
@@ -285,7 +308,8 @@
     "category": "Spices",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/bay-leaf.jpg"
   },
   {
     "_id": "ING_RICE",
@@ -297,7 +321,8 @@
     "category": "Grains",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/basmati-rice.jpg"
   },
   {
     "_id": "ING_URAD_DAL",
@@ -310,7 +335,8 @@
     "category": "Pulses",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/whole-urad-dal.jpg"
   },
   {
     "_id": "ING_RAJMA",
@@ -322,7 +348,8 @@
     "category": "Pulses",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/rajma.jpg"
   },
   {
     "_id": "ING_POTATO",
@@ -334,7 +361,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/potato.jpg"
   },
   {
     "_id": "ING_PEAS",
@@ -346,7 +374,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/green-peas.jpg"
   },
   {
     "_id": "ING_PAV",
@@ -358,7 +387,8 @@
     "category": "Bakery",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/pav.jpg"
   },
   {
     "_id": "ING_PAV_BHAJI_MASALA",
@@ -369,7 +399,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/pav-bhaji-masala.jpg"
   },
   {
     "_id": "ING_LEMON",
@@ -381,7 +412,8 @@
     "category": "Fruits",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/lemon.jpg"
   },
   {
     "_id": "ING_MINT",
@@ -393,7 +425,8 @@
     "category": "Herbs",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/mint.jpg"
   },
   {
     "_id": "ING_SAFFRON",
@@ -405,7 +438,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/saffron.jpg"
   },
   {
     "_id": "ING_BIRYANI_MASALA",
@@ -416,7 +450,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/biryani-masala.jpg"
   },
   {
     "_id": "ING_PASTA",
@@ -429,7 +464,8 @@
     "category": "Grains",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/pasta.jpg"
   },
   {
     "_id": "ING_PESTO",
@@ -441,7 +477,8 @@
     "category": "Sauces",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/pesto.jpg"
   },
   {
     "_id": "ING_PARMESAN",
@@ -453,7 +490,8 @@
     "category": "Dairy",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/parmesan-cheese.jpg"
   },
   {
     "_id": "ING_BASIL",
@@ -464,7 +502,8 @@
     "category": "Herbs",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/fresh-basil.jpg"
   },
   {
     "_id": "ING_OATS",
@@ -476,7 +515,8 @@
     "category": "Grains",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/rolled-oats.jpg"
   },
   {
     "_id": "ING_CARROT",
@@ -488,7 +528,8 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/carrot.jpg"
   },
   {
     "_id": "ING_FLOUR",
@@ -500,7 +541,8 @@
     "category": "Baking",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/all-purpose-flour.jpg"
   },
   {
     "_id": "ING_MILK",
@@ -512,7 +554,8 @@
     "category": "Dairy",
     "defaultUnit": "ml",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/milk.jpg"
   },
   {
     "_id": "ING_EGG",
@@ -524,7 +567,8 @@
     "category": "Protein",
     "defaultUnit": "piece",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/egg.jpg"
   },
   {
     "_id": "ING_BAKING_POWDER",
@@ -535,7 +579,8 @@
     "category": "Baking",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/baking-powder.jpg"
   },
   {
     "_id": "ING_VANILLA",
@@ -546,7 +591,8 @@
     "category": "Baking",
     "defaultUnit": "ml",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/vanilla-extract.jpg"
   },
   {
     "_id": "ING_BLACK_PEPPER",
@@ -558,7 +604,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/black-pepper.jpg"
   },
   {
     "_id": "ING_RED_CHILLI",
@@ -570,7 +617,8 @@
     "category": "Spices",
     "defaultUnit": "g",
     "isPantryStaple": true,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/red-chilli-powder.jpg"
   },
   {
     "_id": "ING_MOZZARELLA",
@@ -581,7 +629,8 @@
     "category": "Dairy",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/mozzarella-cheese.jpg"
   },
   {
     "_id": "ING_LETTUCE",
@@ -592,6 +641,527 @@
     "category": "Vegetables",
     "defaultUnit": "g",
     "isPantryStaple": false,
-    "active": true
+    "active": true,
+    "image": "/images/ingredients/lettuce.jpg"
+  },
+  {
+    "_id": "ING_CABBAGE",
+    "canonicalName": "Cabbage",
+    "aliases": [],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/cabbage.jpg"
+  },
+  {
+    "_id": "ING_SPRING_ONION",
+    "canonicalName": "Spring Onion",
+    "aliases": [],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/spring-onion.jpg"
+  },
+  {
+    "_id": "ING_SOY_SAUCE",
+    "canonicalName": "Soy Sauce",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "ml",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/soy-sauce.jpg"
+  },
+  {
+    "_id": "ING_VINEGAR",
+    "canonicalName": "Vinegar",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "ml",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/vinegar.jpg"
+  },
+  {
+    "_id": "ING_CORNFLOUR",
+    "canonicalName": "Cornflour",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/cornflour.jpg"
+  },
+  {
+    "_id": "ING_SCHEZWAN_SAUCE",
+    "canonicalName": "Schezwan Sauce",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/schezwan-sauce.jpg"
+  },
+  {
+    "_id": "ING_CAULIFLOWER",
+    "canonicalName": "Cauliflower",
+    "aliases": [],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/cauliflower.jpg"
+  },
+  {
+    "_id": "ING_WHEAT_FLOUR",
+    "canonicalName": "Wheat Flour",
+    "aliases": [],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/wheat-flour.jpg"
+  },
+  {
+    "_id": "ING_CAROM_SEEDS",
+    "canonicalName": "Carom Seeds",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/carom-seeds.jpg"
+  },
+  {
+    "_id": "ING_BURGER_BUN",
+    "canonicalName": "Burger Bun",
+    "aliases": [],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/burger-bun.jpg"
+  },
+  {
+    "_id": "ING_CHEESE_SLICE",
+    "canonicalName": "Cheese Slice",
+    "aliases": [],
+    "category": "Dairy",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/cheese-slice.jpg"
+  },
+  {
+    "_id": "ING_MAYONNAISE",
+    "canonicalName": "Mayonnaise",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/mayonnaise.jpg"
+  },
+  {
+    "_id": "ING_TORTILLA",
+    "canonicalName": "Tortilla",
+    "aliases": [],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/tortilla.jpg"
+  },
+  {
+    "_id": "ING_BLACK_BEANS",
+    "canonicalName": "Black Beans",
+    "aliases": [],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/black-beans.jpg"
+  },
+  {
+    "_id": "ING_SALSA",
+    "canonicalName": "Salsa",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/salsa.jpg"
+  },
+  {
+    "_id": "ING_SEMOLINA",
+    "canonicalName": "Semolina",
+    "aliases": [],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/semolina.jpg"
+  },
+  {
+    "_id": "ING_TAMARIND",
+    "canonicalName": "Tamarind",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/tamarind.jpg"
+  },
+  {
+    "_id": "ING_PANI_PURI_MASALA",
+    "canonicalName": "Pani Puri Masala",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/pani-puri-masala.jpg"
+  },
+  {
+    "_id": "ING_SPROUTED_MOONG",
+    "canonicalName": "Sprouted Moong",
+    "aliases": [],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sprouted-moong.jpg"
+  },
+  {
+    "_id": "ING_PIZZA_BASE",
+    "canonicalName": "Pizza Base",
+    "aliases": [],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/pizza-base.jpg"
+  },
+  {
+    "_id": "ING_PIZZA_SAUCE",
+    "canonicalName": "Pizza Sauce",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/pizza-sauce.jpg"
+  },
+  {
+    "_id": "ING_SWEET_CORN",
+    "canonicalName": "Sweet Corn",
+    "aliases": [],
+    "category": "Vegetables",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sweet-corn.jpg"
+  },
+  {
+    "_id": "ING_FENUGREEK_SEEDS",
+    "canonicalName": "Fenugreek Seeds",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/fenugreek-seeds.jpg"
+  },
+  {
+    "_id": "ING_BESAN",
+    "canonicalName": "Besan",
+    "aliases": [],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/besan.jpg"
+  },
+  {
+    "_id": "ING_FRESH_FENUGREEK_LEAVES",
+    "canonicalName": "Fresh Fenugreek Leaves",
+    "aliases": [],
+    "category": "Herbs",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/fresh-fenugreek-leaves.jpg"
+  },
+  {
+    "_id": "ING_PAPAD",
+    "canonicalName": "Papad",
+    "aliases": [],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/papad.jpg"
+  },
+  {
+    "_id": "ING_PICKLE",
+    "canonicalName": "Pickle",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/pickle.jpg"
+  },
+  {
+    "_id": "ING_GHEE",
+    "canonicalName": "Ghee",
+    "aliases": [],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/ghee.jpg"
+  },
+  {
+    "_id": "ING_JAGGERY",
+    "canonicalName": "Jaggery",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/jaggery.jpg"
+  },
+  {
+    "_id": "ING_CURD",
+    "canonicalName": "Curd",
+    "aliases": [],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/curd.jpg"
+  },
+  {
+    "_id": "ING_CHAAT_MASALA",
+    "canonicalName": "Chaat Masala",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/chaat-masala.jpg"
+  },
+  {
+    "_id": "ING_COLOCASIA_LEAVES",
+    "canonicalName": "Colocasia Leaves",
+    "aliases": [],
+    "category": "Vegetables",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/colocasia-leaves.jpg"
+  },
+  {
+    "_id": "ING_TOOR_DAL",
+    "canonicalName": "Toor Dal",
+    "aliases": [],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/toor-dal.jpg"
+  },
+  {
+    "_id": "ING_SAMBHAR_MASALA",
+    "canonicalName": "Sambhar Masala",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sambhar-masala.jpg"
+  },
+  {
+    "_id": "ING_GRATED_COCONUT",
+    "canonicalName": "Grated Coconut",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/grated-coconut.jpg"
+  },
+  {
+    "_id": "ING_ENO_FRUIT_SALT",
+    "canonicalName": "Eno Fruit Salt",
+    "aliases": [],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/eno-fruit-salt.jpg"
+  },
+  {
+    "_id": "ING_BREADCRUMBS",
+    "canonicalName": "Breadcrumbs",
+    "aliases": [],
+    "category": "Baking",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/breadcrumbs.jpg"
+  },
+  {
+    "_id": "ING_MOTH_BEANS",
+    "canonicalName": "Moth Beans",
+    "aliases": [],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/moth-beans.jpg"
+  },
+  {
+    "_id": "ING_SEV",
+    "canonicalName": "Sev",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sev.jpg"
+  },
+  {
+    "_id": "ING_FARSAN_MIX",
+    "canonicalName": "Farsan Mix",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/farsan-mix.jpg"
+  },
+  {
+    "_id": "ING_RAMEN_NOODLES",
+    "canonicalName": "Ramen Noodles",
+    "aliases": [],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/ramen-noodles.jpg"
+  },
+  {
+    "_id": "ING_KIMCHI",
+    "canonicalName": "Kimchi",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/kimchi.jpg"
+  },
+  {
+    "_id": "ING_SESAME_OIL",
+    "canonicalName": "Sesame Oil",
+    "aliases": [],
+    "category": "Pantry",
+    "defaultUnit": "ml",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sesame-oil.jpg"
+  },
+  {
+    "_id": "ING_SESAME_SEEDS",
+    "canonicalName": "Sesame Seeds",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/sesame-seeds.jpg"
+  },
+  {
+    "_id": "ING_GREEN_CHUTNEY",
+    "canonicalName": "Green Chutney",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/tamarind-chutney.jpg"
+  },
+  {
+    "_id": "ING_TAMARIND_CHUTNEY",
+    "canonicalName": "Tamarind Chutney",
+    "aliases": [],
+    "category": "Sauces",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/tamarind-chutney.jpg"
+  },
+  {
+    "_id": "ING_PURI_GOLGAPPA",
+    "canonicalName": "Puri (Golgappa)",
+    "aliases": [],
+    "category": "Bakery",
+    "defaultUnit": "piece",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/puri-golgappa.jpg"
+  },
+  {
+    "_id": "ING_NOODLES_HAKKA",
+    "canonicalName": "Noodles (Hakka)",
+    "aliases": [],
+    "category": "Grains",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/noodles-hakka.jpg"
+  },
+  {
+    "_id": "ING_KIDNEY_BEANS",
+    "canonicalName": "Kidney Beans",
+    "aliases": [],
+    "category": "Pulses",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/kidney-beans.jpg"
+  },
+  {
+    "_id": "ING_CURRY_LEAVES",
+    "canonicalName": "Curry Leaves",
+    "aliases": [],
+    "category": "Herbs",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/curry-leaves.jpg"
+  },
+  {
+    "_id": "ING_MUSTARD_SEEDS",
+    "canonicalName": "Mustard Seeds",
+    "aliases": [],
+    "category": "Spices",
+    "defaultUnit": "g",
+    "isPantryStaple": true,
+    "active": true,
+    "image": "/images/ingredients/mustard-seeds.jpg"
+  },
+  {
+    "_id": "ING_SHRIKHAND",
+    "canonicalName": "Shrikhand",
+    "aliases": [],
+    "category": "Dairy",
+    "defaultUnit": "g",
+    "isPantryStaple": false,
+    "active": true,
+    "image": "/images/ingredients/shrikhand.jpg"
   }
 ]

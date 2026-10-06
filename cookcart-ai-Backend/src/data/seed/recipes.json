@@ -1,169 +1,5 @@
 [
   {
-    "_id": "PBM001",
-    "name": "Paneer Butter Masala",
-    "slug": "paneer-butter-masala",
-    "description": "Creamy North Indian paneer curry with tomato, butter, cream and aromatic spices.",
-    "baseServings": 4,
-    "prepTime": 15,
-    "cookTime": 30,
-    "difficulty": "Easy",
-    "dietType": "Vegetarian",
-    "cuisine": "North Indian",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer_Butter_Masala.jpg",
-    "imageSource": {
-      "source": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paneer_Butter_Masala.jpg",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Krishnakerala"
-    },
-    "ingredients": [
-      {
-        "ingredientId": "ING_PANEER",
-        "quantity": 400,
-        "unit": "g",
-        "required": true,
-        "critical": true,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_TOMATO",
-        "quantity": 300,
-        "unit": "g",
-        "required": true,
-        "critical": true,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_ONION",
-        "quantity": 150,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_BUTTER",
-        "quantity": 50,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_CREAM",
-        "quantity": 100,
-        "unit": "ml",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_GINGER",
-        "quantity": 10,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_GARLIC",
-        "quantity": 10,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_KASHMIRI_CHILLI",
-        "quantity": 5,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      },
-      {
-        "ingredientId": "ING_GARAM_MASALA",
-        "quantity": 5,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      },
-      {
-        "ingredientId": "ING_KASURI_METHI",
-        "quantity": 5,
-        "unit": "g",
-        "required": false,
-        "critical": false,
-        "scalingRule": "fixed"
-      },
-      {
-        "ingredientId": "ING_SALT",
-        "quantity": 6,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      },
-      {
-        "ingredientId": "ING_SUGAR",
-        "quantity": 5,
-        "unit": "g",
-        "required": false,
-        "critical": false,
-        "scalingRule": "fixed"
-      },
-      {
-        "ingredientId": "ING_OIL",
-        "quantity": 15,
-        "unit": "ml",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      }
-    ],
-    "steps": [
-      {
-        "step": 1,
-        "title": "Prepare",
-        "description": "Cut paneer and prepare onion, tomato, ginger and garlic."
-      },
-      {
-        "step": 2,
-        "title": "Cook masala",
-        "description": "Cook onion, ginger, garlic and tomatoes with spices until soft."
-      },
-      {
-        "step": 3,
-        "title": "Blend",
-        "description": "Blend the cooked tomato mixture into a smooth gravy."
-      },
-      {
-        "step": 4,
-        "title": "Finish gravy",
-        "description": "Cook the gravy with butter and cream, then adjust seasoning."
-      },
-      {
-        "step": 5,
-        "title": "Add paneer",
-        "description": "Add paneer and simmer gently until heated through."
-      },
-      {
-        "step": 6,
-        "title": "Finish",
-        "description": "Add kasuri methi and serve hot."
-      }
-    ],
-    "tags": [
-      "paneer",
-      "indian",
-      "vegetarian",
-      "north-indian",
-      "curry"
-    ]
-  },
-  {
     "_id": "DM001",
     "name": "Dal Makhani",
     "slug": "dal-makhani",
@@ -349,12 +185,10 @@
     "difficulty": "Easy",
     "dietType": "Vegetarian",
     "cuisine": "Mumbai",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pav_bhaji.jpg",
+    "image": "/images/recipes/pav-bhaji.jpeg",
     "imageSource": {
-      "source": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pav_bhaji.jpg",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Dforest"
+      "source": "local-upload",
+      "originalFilename": "Pav Bhaji.jpeg"
     },
     "ingredients": [
       {
@@ -853,27 +687,546 @@
     ]
   },
   {
-    "_id": "SMO001",
-    "name": "Spicy Masala Oats",
-    "slug": "spicy-masala-oats",
-    "description": "Savory oats cooked with vegetables and Indian spices.",
-    "baseServings": 2,
-    "prepTime": 5,
-    "cookTime": 10,
-    "difficulty": "Easy",
+    "_id": "R0100",
+    "name": "Manchurian Dry",
+    "slug": "manchurian-dry",
+    "description": "Crispy vegetable balls tossed in a tangy garlic-soy sauce.",
+    "baseServings": 4,
+    "prepTime": 25,
+    "cookTime": 20,
+    "difficulty": "Medium",
     "dietType": "Vegetarian",
-    "cuisine": "Indian Fusion",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/MASALA_OATS.JPG",
+    "cuisine": "Indo-Chinese",
+    "image": "/images/recipes/manchurian-dry.jpeg",
     "imageSource": {
-      "source": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MASALA_OATS.JPG",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Mkr.lines"
+      "source": "local-upload",
+      "originalFilename": "Manchurian Dry.jpeg"
     },
     "ingredients": [
       {
-        "ingredientId": "ING_OATS",
+        "ingredientId": "ING_CABBAGE",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
         "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CORNFLOUR",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_FLOUR",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SPRING_ONION",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SOY_SAUCE",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": true,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_VINEGAR",
+        "quantity": 10,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 300,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prep vegetables",
+        "description": "Finely chop cabbage, carrot, garlic and ginger."
+      },
+      {
+        "step": 2,
+        "title": "Make balls",
+        "description": "Mix veggies with cornflour and flour, shape into small balls and deep-fry until golden."
+      },
+      {
+        "step": 3,
+        "title": "Make sauce",
+        "description": "Saute garlic and ginger, add soy sauce, vinegar and a splash of water."
+      },
+      {
+        "step": 4,
+        "title": "Toss",
+        "description": "Toss the fried balls in the sauce with spring onion and serve hot."
+      }
+    ],
+    "tags": [
+      "indo-chinese",
+      "starter",
+      "fried"
+    ]
+  },
+  {
+    "_id": "R0102",
+    "name": "Aloo Paratha",
+    "slug": "aloo-paratha",
+    "description": "Whole-wheat flatbread stuffed with spiced mashed potatoes.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/aloo-paratha.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Aloo Paratha.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 400,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil potatoes",
+        "description": "Boil, peel and mash the potatoes."
+      },
+      {
+        "step": 2,
+        "title": "Make stuffing",
+        "description": "Mix mashed potato with chillies, coriander, cumin and spices."
+      },
+      {
+        "step": 3,
+        "title": "Make dough",
+        "description": "Knead a soft wheat dough and rest for 15 minutes."
+      },
+      {
+        "step": 4,
+        "title": "Stuff and roll",
+        "description": "Stuff dough balls with the potato filling and roll out gently."
+      },
+      {
+        "step": 5,
+        "title": "Cook",
+        "description": "Cook on a hot tawa with ghee until golden spots appear on both sides."
+      }
+    ],
+    "tags": [
+      "breakfast",
+      "paratha",
+      "stuffed"
+    ]
+  },
+  {
+    "_id": "R0103",
+    "name": "Gobi Paratha",
+    "slug": "gobi-paratha",
+    "description": "Whole-wheat flatbread stuffed with spiced grated cauliflower.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/gobi-paratha.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Gobi Paratha.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAULIFLOWER",
+        "quantity": 350,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 8,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Grate cauliflower",
+        "description": "Grate the cauliflower finely and squeeze out excess water."
+      },
+      {
+        "step": 2,
+        "title": "Make stuffing",
+        "description": "Mix grated cauliflower with chillies, ginger, coriander and spices."
+      },
+      {
+        "step": 3,
+        "title": "Make dough",
+        "description": "Knead a soft wheat dough and rest for 15 minutes."
+      },
+      {
+        "step": 4,
+        "title": "Stuff and roll",
+        "description": "Stuff dough balls with the cauliflower filling and roll out gently."
+      },
+      {
+        "step": 5,
+        "title": "Cook",
+        "description": "Cook on a hot tawa with ghee until golden on both sides."
+      }
+    ],
+    "tags": [
+      "breakfast",
+      "paratha",
+      "stuffed"
+    ]
+  },
+  {
+    "_id": "R0104",
+    "name": "Veg Burger",
+    "slug": "veg-burger",
+    "description": "A crisp vegetable patty layered with fresh veggies in a soft bun.",
+    "baseServings": 2,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "American",
+    "image": "/images/recipes/veg-burger.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Veg Burger.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_BURGER_BUN",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PEAS",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BREADCRUMBS",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_LETTUCE",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MAYONNAISE",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CHEESE_SLICE",
+        "quantity": 2,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CHAAT_MASALA",
+        "quantity": 4,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make patty",
+        "description": "Mash boiled potato and peas with spices, shape into patties and coat in breadcrumbs."
+      },
+      {
+        "step": 2,
+        "title": "Pan-fry",
+        "description": "Shallow fry the patties until crisp and golden."
+      },
+      {
+        "step": 3,
+        "title": "Toast buns",
+        "description": "Toast the burger buns with a little butter."
+      },
+      {
+        "step": 4,
+        "title": "Assemble",
+        "description": "Layer lettuce, tomato, patty, cheese and mayo between the buns and serve."
+      }
+    ],
+    "tags": [
+      "burger",
+      "fast-food"
+    ]
+  },
+  {
+    "_id": "R0105",
+    "name": "Veg Tacos",
+    "slug": "veg-tacos",
+    "description": "Crunchy taco shells filled with spiced beans, veggies and salsa.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Mexican",
+    "image": "/images/recipes/veg-tacos.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Veg Tacos.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_TORTILLA",
+        "quantity": 8,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BLACK_BEANS",
+        "quantity": 200,
         "unit": "g",
         "required": true,
         "critical": true,
@@ -881,6 +1234,14 @@
       },
       {
         "ingredientId": "ING_ONION",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
         "quantity": 80,
         "unit": "g",
         "required": true,
@@ -896,64 +1257,40 @@
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_CAPSICUM",
-        "quantity": 60,
+        "ingredientId": "ING_SALSA",
+        "quantity": 100,
         "unit": "g",
         "required": true,
         "critical": false,
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_CARROT",
-        "quantity": 60,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_PEAS",
+        "ingredientId": "ING_LETTUCE",
         "quantity": 50,
         "unit": "g",
-        "required": true,
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_MOZZARELLA",
+        "quantity": 80,
+        "unit": "g",
+        "required": false,
         "critical": false,
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_GREEN_CHILLI",
-        "quantity": 8,
-        "unit": "g",
+        "ingredientId": "ING_OIL",
+        "quantity": 20,
+        "unit": "ml",
         "required": true,
         "critical": false,
-        "scalingRule": "linear"
-      },
-      {
-        "ingredientId": "ING_GINGER",
-        "quantity": 5,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "linear"
+        "scalingRule": "moderate"
       },
       {
         "ingredientId": "ING_CUMIN",
-        "quantity": 3,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      },
-      {
-        "ingredientId": "ING_TURMERIC",
-        "quantity": 2,
-        "unit": "g",
-        "required": true,
-        "critical": false,
-        "scalingRule": "moderate"
-      },
-      {
-        "ingredientId": "ING_RED_CHILLI",
-        "quantity": 3,
+        "quantity": 5,
         "unit": "g",
         "required": true,
         "critical": false,
@@ -966,11 +1303,2050 @@
         "required": true,
         "critical": false,
         "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook filling",
+        "description": "Saute onion, capsicum, cooked black beans and cumin until warmed through."
+      },
+      {
+        "step": 2,
+        "title": "Warm tortillas",
+        "description": "Lightly warm the tortillas or taco shells."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "description": "Fill each shell with the bean mix, lettuce, tomato, cheese and salsa."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Serve immediately while the shells are crisp."
+      }
+    ],
+    "tags": [
+      "mexican",
+      "tacos"
+    ]
+  },
+  {
+    "_id": "R0108",
+    "name": "Idli",
+    "slug": "idli",
+    "description": "Soft, fluffy steamed rice cakes served with chutney and sambhar.",
+    "baseServings": 4,
+    "prepTime": 480,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "South Indian",
+    "image": "/images/recipes/idli.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Idli.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_URAD_DAL",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_FENUGREEK_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
       },
       {
         "ingredientId": "ING_OIL",
         "quantity": 10,
         "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Soak",
+        "description": "Soak rice and urad dal separately with fenugreek seeds for 4-6 hours."
+      },
+      {
+        "step": 2,
+        "title": "Grind",
+        "description": "Grind both into a smooth batter and mix together."
+      },
+      {
+        "step": 3,
+        "title": "Ferment",
+        "description": "Leave the batter to ferment overnight until it rises."
+      },
+      {
+        "step": 4,
+        "title": "Steam",
+        "description": "Pour into greased idli moulds and steam for 10-12 minutes until a knife comes out clean."
+      }
+    ],
+    "tags": [
+      "south-indian",
+      "steamed",
+      "breakfast"
+    ]
+  },
+  {
+    "_id": "R0109",
+    "name": "Chur Chur Naan",
+    "slug": "chur-chur-naan",
+    "description": "Flaky, shredded naan enriched with ghee and butter.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/chur-chur-naan.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Chur Chur Naan.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_FLOUR",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BAKING_POWDER",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 30,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MILK",
+        "quantity": 80,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make dough",
+        "description": "Knead flour with yogurt, baking powder, milk and salt into a soft dough; rest 2 hours."
+      },
+      {
+        "step": 2,
+        "title": "Shape",
+        "description": "Divide into balls and roll into naan shapes."
+      },
+      {
+        "step": 3,
+        "title": "Cook",
+        "description": "Cook on a hot tawa or in a tandoor until charred spots appear."
+      },
+      {
+        "step": 4,
+        "title": "Chur chur",
+        "description": "Crush the hot naan lightly between your palms and brush generously with ghee and butter."
+      }
+    ],
+    "tags": [
+      "naan",
+      "tandoori",
+      "bread"
+    ]
+  },
+  {
+    "_id": "R0110",
+    "name": "Cenona's Pizza",
+    "slug": "cenona-s-pizza",
+    "description": "House-special loaded pizza with a generous mix of vegetables and cheese.",
+    "baseServings": 4,
+    "prepTime": 30,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Italian",
+    "image": "/images/recipes/cenona-s-pizza.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Cenona’s Pizza.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PIZZA_BASE",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PIZZA_SAUCE",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MOZZARELLA",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 80,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SWEET_CORN",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BLACK_PEPPER",
+        "quantity": 3,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prep base",
+        "description": "Spread pizza sauce generously over the base."
+      },
+      {
+        "step": 2,
+        "title": "Load toppings",
+        "description": "Layer on mozzarella, capsicum, corn, onion and tomato."
+      },
+      {
+        "step": 3,
+        "title": "Bake",
+        "description": "Bake until the crust is golden and cheese bubbly."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Slice and serve hot with a sprinkle of black pepper."
+      }
+    ],
+    "tags": [
+      "pizza",
+      "specialty"
+    ]
+  },
+  {
+    "_id": "R0111",
+    "name": "Thepla",
+    "slug": "thepla",
+    "description": "Soft spiced flatbread made with fenugreek leaves and wheat flour.",
+    "baseServings": 4,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Gujarati",
+    "image": "/images/recipes/thepla.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Thepla.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_FRESH_FENUGREEK_LEAVES",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BESAN",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 40,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make dough",
+        "description": "Mix wheat flour, chopped fenugreek leaves, besan, yogurt, spices and oil into a soft dough."
+      },
+      {
+        "step": 2,
+        "title": "Rest",
+        "description": "Rest the dough for 10 minutes."
+      },
+      {
+        "step": 3,
+        "title": "Roll and cook",
+        "description": "Roll into thin rounds and cook on a hot tawa with a little oil until golden on both sides."
+      }
+    ],
+    "tags": [
+      "gujarati",
+      "flatbread",
+      "breakfast"
+    ]
+  },
+  {
+    "_id": "R0113",
+    "name": "Paneer Wrap",
+    "slug": "paneer-wrap",
+    "description": "Soft rotis rolled with spiced paneer tikka and crunchy vegetables.",
+    "baseServings": 2,
+    "prepTime": 15,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Fusion",
+    "image": "/images/recipes/paneer-wrap.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Paneer Wrap.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHUTNEY",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_MAYONNAISE",
+        "quantity": 20,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Marinate paneer",
+        "description": "Marinate paneer cubes in yogurt and spices, then pan-fry with capsicum and onion."
+      },
+      {
+        "step": 2,
+        "title": "Roll rotis",
+        "description": "Roll out and cook soft wheat rotis."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "description": "Spread green chutney and mayo on the roti, add the paneer filling and roll tightly."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Slice in half and serve warm."
+      }
+    ],
+    "tags": [
+      "wrap",
+      "paneer",
+      "quick"
+    ]
+  },
+  {
+    "_id": "R0114",
+    "name": "Green Veg. Wrap",
+    "slug": "green-veg-wrap",
+    "description": "A fresh wrap loaded with crisp greens and a tangy chutney.",
+    "baseServings": 2,
+    "prepTime": 15,
+    "cookTime": 10,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Fusion",
+    "image": "/images/recipes/green-veg-wrap.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Green Veg. Wrap.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_LETTUCE",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CABBAGE",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SPROUTED_MOONG",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHUTNEY",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_MAYONNAISE",
+        "quantity": 15,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Roll rotis",
+        "description": "Roll out and cook soft wheat rotis."
+      },
+      {
+        "step": 2,
+        "title": "Prep veggies",
+        "description": "Shred cabbage, carrot and capsicum thinly."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "description": "Spread green chutney on the roti, pile on the vegetables and sprouts, and roll tightly."
+      }
+    ],
+    "tags": [
+      "wrap",
+      "healthy",
+      "quick"
+    ]
+  },
+  {
+    "_id": "R0115",
+    "name": "Fries",
+    "slug": "fries",
+    "description": "Golden, crispy potato fries dusted with chaat masala.",
+    "baseServings": 3,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "American",
+    "image": "/images/recipes/fries.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Fries.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 500,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 400,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CHAAT_MASALA",
+        "quantity": 8,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cut potatoes",
+        "description": "Cut potatoes into even batons and soak in water for 20 minutes."
+      },
+      {
+        "step": 2,
+        "title": "Par-boil",
+        "description": "Par-boil briefly, then pat completely dry."
+      },
+      {
+        "step": 3,
+        "title": "Fry",
+        "description": "Deep-fry until golden and crisp."
+      },
+      {
+        "step": 4,
+        "title": "Season",
+        "description": "Toss with salt and chaat masala and serve hot."
+      }
+    ],
+    "tags": [
+      "snack",
+      "fried",
+      "sides"
+    ]
+  },
+  {
+    "_id": "R0117",
+    "name": "Patra",
+    "slug": "patra",
+    "description": "Colocasia leaves layered with a spiced besan paste, steamed and pan-fried.",
+    "baseServings": 4,
+    "prepTime": 30,
+    "cookTime": 25,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Gujarati",
+    "image": "/images/recipes/patra.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Patra.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_COLOCASIA_LEAVES",
+        "quantity": 10,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BESAN",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TAMARIND",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_JAGGERY",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SESAME_SEEDS",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_MUSTARD_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 25,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make paste",
+        "description": "Mix besan with tamarind, jaggery, turmeric, chilli powder and water into a thick paste."
+      },
+      {
+        "step": 2,
+        "title": "Layer leaves",
+        "description": "Spread the paste over colocasia leaves, stack and roll tightly."
+      },
+      {
+        "step": 3,
+        "title": "Steam",
+        "description": "Steam the rolls for 20-25 minutes, then cool and slice."
+      },
+      {
+        "step": 4,
+        "title": "Temper",
+        "description": "Pan-fry the slices with a mustard-seed and sesame tempering before serving."
+      }
+    ],
+    "tags": [
+      "gujarati",
+      "steamed",
+      "snack"
+    ]
+  },
+  {
+    "_id": "R0118",
+    "name": "Masala Dosa",
+    "slug": "masala-dosa",
+    "description": "Crispy fermented rice-and-lentil crepe filled with spiced potato masala.",
+    "baseServings": 4,
+    "prepTime": 480,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "South Indian",
+    "image": "/images/recipes/masala-dosa.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Masala Dosa.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_URAD_DAL",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_FENUGREEK_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MUSTARD_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CURRY_LEAVES",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Ferment batter",
+        "description": "Soak, grind and ferment rice and urad dal into a smooth dosa batter overnight."
+      },
+      {
+        "step": 2,
+        "title": "Make potato masala",
+        "description": "Temper mustard seeds and curry leaves, add onion, boiled potato and turmeric; mash lightly."
+      },
+      {
+        "step": 3,
+        "title": "Spread dosa",
+        "description": "Spread a ladle of batter thin on a hot griddle and drizzle with oil until crisp."
+      },
+      {
+        "step": 4,
+        "title": "Fill and fold",
+        "description": "Place the potato masala in the centre, fold the dosa and serve hot."
+      }
+    ],
+    "tags": [
+      "south-indian",
+      "dosa",
+      "breakfast"
+    ]
+  },
+  {
+    "_id": "R0119",
+    "name": "Menduwada",
+    "slug": "menduwada",
+    "description": "Crisp, fluffy lentil doughnuts served with coconut chutney and sambhar.",
+    "baseServings": 4,
+    "prepTime": 240,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "South Indian",
+    "image": "/images/recipes/menduwada.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Menduwada.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_URAD_DAL",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 8,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CURRY_LEAVES",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 400,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Soak and grind",
+        "description": "Soak urad dal for 4 hours and grind into a thick, fluffy batter."
+      },
+      {
+        "step": 2,
+        "title": "Add flavour",
+        "description": "Fold in chopped green chilli, ginger and curry leaves."
+      },
+      {
+        "step": 3,
+        "title": "Shape",
+        "description": "Wet your hands, shape small doughnuts and slide into hot oil."
+      },
+      {
+        "step": 4,
+        "title": "Fry",
+        "description": "Deep-fry until golden brown and crisp; serve with chutney and sambhar."
+      }
+    ],
+    "tags": [
+      "south-indian",
+      "fried",
+      "breakfast"
+    ]
+  },
+  {
+    "_id": "R0120",
+    "name": "Gujarati Thali",
+    "slug": "gujarati-thali",
+    "description": "A wholesome everyday Gujarati thali of dal, sabzi, rotli and rice.",
+    "baseServings": 4,
+    "prepTime": 35,
+    "cookTime": 40,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Gujarati",
+    "image": "/images/recipes/gujarati-thali.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Gujarati Thali.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_TOOR_DAL",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_WHEAT_FLOUR",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PAPAD",
+        "quantity": 4,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 25,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_JAGGERY",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 7,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook dal",
+        "description": "Cook toor dal with turmeric and a touch of jaggery."
+      },
+      {
+        "step": 2,
+        "title": "Make sabzi",
+        "description": "Prepare a simple spiced potato sabzi."
+      },
+      {
+        "step": 3,
+        "title": "Roll rotli",
+        "description": "Roll out and cook soft wheat rotlis with ghee."
+      },
+      {
+        "step": 4,
+        "title": "Cook rice",
+        "description": "Steam the rice and plate everything together with papad."
+      }
+    ],
+    "tags": [
+      "thali",
+      "gujarati",
+      "combo"
+    ]
+  },
+  {
+    "_id": "R0121",
+    "name": "Veg. Noodles",
+    "slug": "veg-noodles",
+    "description": "Stir-fried noodles tossed with crunchy vegetables in a savoury soy sauce.",
+    "baseServings": 3,
+    "prepTime": 15,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Indo-Chinese",
+    "image": "/images/recipes/veg-noodles.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Veg. Noodles.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_NOODLES_HAKKA",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CABBAGE",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SPRING_ONION",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SOY_SAUCE",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": true,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_VINEGAR",
+        "quantity": 10,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil noodles",
+        "description": "Boil the noodles until just tender, drain and toss with a little oil."
+      },
+      {
+        "step": 2,
+        "title": "Stir-fry veggies",
+        "description": "Stir-fry garlic and vegetables on high heat until crisp-tender."
+      },
+      {
+        "step": 3,
+        "title": "Combine",
+        "description": "Add the noodles, soy sauce and vinegar, and toss everything together."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "description": "Garnish with spring onion and serve hot."
+      }
+    ],
+    "tags": [
+      "noodles",
+      "indo-chinese"
+    ]
+  },
+  {
+    "_id": "R0122",
+    "name": "Premium Thali",
+    "slug": "premium-thali",
+    "description": "An elaborate thali with a rich paneer curry, dal, rice, naan and dessert.",
+    "baseServings": 4,
+    "prepTime": 40,
+    "cookTime": 45,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/premium-thali.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Premium Thali.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOOR_DAL",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_FLOUR",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CREAM",
+        "quantity": 60,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PAPAD",
+        "quantity": 4,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SHRIKHAND",
+        "quantity": 150,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 30,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook paneer curry",
+        "description": "Simmer paneer in a rich tomato-onion gravy finished with cream."
+      },
+      {
+        "step": 2,
+        "title": "Cook dal",
+        "description": "Prepare a simple tempered toor dal."
+      },
+      {
+        "step": 3,
+        "title": "Make naan and rice",
+        "description": "Cook naans on a tawa and steam the basmati rice."
+      },
+      {
+        "step": 4,
+        "title": "Plate",
+        "description": "Plate the curry, dal, rice, naan, papad and shrikhand together."
+      }
+    ],
+    "tags": [
+      "thali",
+      "combo",
+      "premium"
+    ]
+  },
+  {
+    "_id": "R0123",
+    "name": "Vadapav",
+    "slug": "vadapav",
+    "description": "Spiced potato fritters sandwiched in a soft pav with chutneys.",
+    "baseServings": 4,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Maharashtrian",
+    "image": "/images/recipes/vadapav.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Vadapav.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PAV",
+        "quantity": 4,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 400,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BESAN",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_MUSTARD_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CURRY_LEAVES",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHUTNEY",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_TAMARIND_CHUTNEY",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 300,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make filling",
+        "description": "Mash boiled potato with a mustard-curry leaf tempering, turmeric and chillies."
+      },
+      {
+        "step": 2,
+        "title": "Shape and batter",
+        "description": "Shape into balls and dip in a seasoned besan batter."
+      },
+      {
+        "step": 3,
+        "title": "Fry",
+        "description": "Deep-fry until golden and crisp."
+      },
+      {
+        "step": 4,
+        "title": "Assemble",
+        "description": "Slit the pav, spread chutneys, add garlic chutney and the vada, and serve hot."
+      }
+    ],
+    "tags": [
+      "street-food",
+      "maharashtrian",
+      "fried"
+    ]
+  },
+  {
+    "_id": "R0124",
+    "name": "Cheese Panipuri",
+    "slug": "cheese-panipuri",
+    "description": "A cheesy fusion twist on classic pani puri with a molten cheese filling.",
+    "baseServings": 4,
+    "prepTime": 25,
+    "cookTime": 10,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Street Food",
+    "image": "",
+    "imageSource": null,
+    "ingredients": [
+      {
+        "ingredientId": "ING_PURI_GOLGAPPA",
+        "quantity": 24,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MOZZARELLA",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MINT",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TAMARIND",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_PANI_PURI_MASALA",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make pani",
+        "description": "Blend mint, coriander and pani puri masala with water and strain."
+      },
+      {
+        "step": 2,
+        "title": "Prep filling",
+        "description": "Mix mashed potato with grated mozzarella."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "description": "Fill each puri with the potato-cheese mix and dunk in the spiced water just before serving."
+      }
+    ],
+    "tags": [
+      "chaat",
+      "fusion",
+      "street-food"
+    ]
+  },
+  {
+    "_id": "R0125",
+    "name": "Khaman",
+    "slug": "khaman",
+    "description": "Soft, spongy steamed besan cakes tempered with mustard seeds.",
+    "baseServings": 4,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Gujarati",
+    "image": "/images/recipes/khaman.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Khaman.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_BESAN",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ENO_FRUIT_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_MUSTARD_SEEDS",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CURRY_LEAVES",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SUGAR",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_LEMON",
+        "quantity": 1,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make batter",
+        "description": "Whisk besan with water, sugar, lemon juice and salt into a smooth batter."
+      },
+      {
+        "step": 2,
+        "title": "Steam",
+        "description": "Add eno, pour into a greased tin and steam for 15-18 minutes until spongy."
+      },
+      {
+        "step": 3,
+        "title": "Temper",
+        "description": "Temper mustard seeds, curry leaves and green chilli in oil and pour over."
+      },
+      {
+        "step": 4,
+        "title": "Cut and serve",
+        "description": "Cool slightly, cut into squares and serve."
+      }
+    ],
+    "tags": [
+      "gujarati",
+      "steamed",
+      "snack"
+    ]
+  },
+  {
+    "_id": "R0127",
+    "name": "Spicy Veg. Noodles",
+    "slug": "spicy-veg-noodles",
+    "description": "Fiery stir-fried noodles with schezwan sauce and crunchy vegetables.",
+    "baseServings": 3,
+    "prepTime": 15,
+    "cookTime": 15,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Indo-Chinese",
+    "image": "/images/recipes/spicy-veg-noodles.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Spicy Veg. Noodles.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_NOODLES_HAKKA",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CABBAGE",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SCHEZWAN_SAUCE",
+        "quantity": 40,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SOY_SAUCE",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil noodles",
+        "description": "Boil the noodles until just tender and toss with a little oil."
+      },
+      {
+        "step": 2,
+        "title": "Stir-fry",
+        "description": "Stir-fry garlic and vegetables on high heat."
+      },
+      {
+        "step": 3,
+        "title": "Add sauces",
+        "description": "Add schezwan sauce and soy sauce, then toss in the noodles."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Cook briefly until well coated and serve immediately."
+      }
+    ],
+    "tags": [
+      "noodles",
+      "spicy",
+      "indo-chinese"
+    ]
+  },
+  {
+    "_id": "R0128",
+    "name": "Dal Tadka",
+    "slug": "dal-tadka",
+    "description": "Yellow lentils simmered and finished with a smoky ghee tempering.",
+    "baseServings": 4,
+    "prepTime": 10,
+    "cookTime": 25,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/dal-tadka.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Dal Tadka.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_TOOR_DAL",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 25,
+        "unit": "g",
         "required": true,
         "critical": false,
         "scalingRule": "moderate"
@@ -982,64 +3358,315 @@
         "required": false,
         "critical": false,
         "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
       }
     ],
     "steps": [
       {
         "step": 1,
-        "title": "Temper",
-        "description": "Heat oil and crackle cumin."
+        "title": "Boil dal",
+        "description": "Boil the toor dal with turmeric until soft and mash lightly."
       },
       {
         "step": 2,
-        "title": "Cook vegetables",
-        "description": "Add onion, ginger, chilli and vegetables; cook until slightly soft."
+        "title": "Make tadka",
+        "description": "Heat ghee, temper cumin and garlic, add onion and tomato until softened."
       },
       {
         "step": 3,
-        "title": "Add spices",
-        "description": "Add turmeric, chilli powder and salt."
+        "title": "Combine",
+        "description": "Pour the tempering into the boiled dal and simmer for a few minutes."
       },
       {
         "step": 4,
-        "title": "Cook oats",
-        "description": "Add oats and water; cook until creamy and tender."
-      },
-      {
-        "step": 5,
-        "title": "Serve",
-        "description": "Finish with coriander and serve hot."
+        "title": "Finish",
+        "description": "Garnish with coriander and serve hot."
       }
     ],
     "tags": [
-      "oats",
-      "breakfast",
-      "healthy",
-      "quick",
-      "vegetarian"
+      "dal",
+      "comfort-food",
+      "north-indian"
     ]
   },
   {
-    "_id": "CP001",
-    "name": "Classic Pancakes",
-    "slug": "classic-pancakes",
-    "description": "Soft, fluffy breakfast pancakes made with flour, milk, egg and vanilla.",
+    "_id": "R0129",
+    "name": "Kaju Paneer Masala",
+    "slug": "kaju-paneer-masala",
+    "description": "Paneer and cashews simmered in a creamy, rich cashew-tomato gravy.",
     "baseServings": 4,
-    "prepTime": 10,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/kaju-paneer-masala.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Kaju Paneer Masala.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CASHEW",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 120,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CREAM",
+        "quantity": 80,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 30,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make gravy base",
+        "description": "Cook onion, ginger, garlic, tomato and half the cashews, then blend smooth."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "description": "Simmer the gravy with butter and cream until rich."
+      },
+      {
+        "step": 3,
+        "title": "Add paneer",
+        "description": "Add paneer cubes and remaining whole cashews, simmer gently."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "description": "Adjust seasoning with garam masala and serve hot."
+      }
+    ],
+    "tags": [
+      "paneer",
+      "curry",
+      "rich"
+    ]
+  },
+  {
+    "_id": "R0130",
+    "name": "Garlic Butter Naan",
+    "slug": "garlic-butter-naan",
+    "description": "Soft leavened naan brushed with garlic butter.",
+    "baseServings": 4,
+    "prepTime": 20,
     "cookTime": 15,
     "difficulty": "Easy",
     "dietType": "Vegetarian",
-    "cuisine": "American",
-    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pancakes_(1).jpg",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/garlic-butter-naan.jpeg",
     "imageSource": {
-      "source": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancakes_(1).jpg",
-      "license": "Public Domain / CC0 Public Domain Mark",
-      "attribution": "Renee Comet / National Cancer Institute"
+      "source": "local-upload",
+      "originalFilename": "Garlic Butter Naan.jpeg"
     },
     "ingredients": [
       {
         "ingredientId": "ING_FLOUR",
+        "quantity": 300,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BAKING_POWDER",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BUTTER",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make dough",
+        "description": "Knead flour with yogurt, baking powder and salt into a soft dough, rest 2 hours."
+      },
+      {
+        "step": 2,
+        "title": "Shape",
+        "description": "Divide and roll into naan shapes."
+      },
+      {
+        "step": 3,
+        "title": "Cook",
+        "description": "Cook on a hot tawa or in a tandoor until puffed and charred in spots."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "description": "Brush with garlic butter and chopped coriander before serving."
+      }
+    ],
+    "tags": [
+      "naan",
+      "bread",
+      "tandoori"
+    ]
+  },
+  {
+    "_id": "R0131",
+    "name": "Punjabi Thali",
+    "slug": "punjabi-thali",
+    "description": "A hearty Punjabi spread of paneer curry, dal makhani, rice and naan.",
+    "baseServings": 4,
+    "prepTime": 35,
+    "cookTime": 45,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Punjabi",
+    "image": "/images/recipes/punjabi-thali.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Punjabi Thali.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RAJMA",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RICE",
         "quantity": 200,
         "unit": "g",
         "required": true,
@@ -1047,24 +3674,24 @@
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_MILK",
-        "quantity": 250,
-        "unit": "ml",
+        "ingredientId": "ING_FLOUR",
+        "quantity": 200,
+        "unit": "g",
         "required": true,
-        "critical": true,
+        "critical": false,
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_EGG",
-        "quantity": 2,
-        "unit": "piece",
+        "ingredientId": "ING_TOMATO",
+        "quantity": 200,
+        "unit": "g",
         "required": true,
-        "critical": true,
+        "critical": false,
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_SUGAR",
-        "quantity": 25,
+        "ingredientId": "ING_ONION",
+        "quantity": 100,
         "unit": "g",
         "required": true,
         "critical": false,
@@ -1079,25 +3706,513 @@
         "scalingRule": "linear"
       },
       {
-        "ingredientId": "ING_BAKING_POWDER",
+        "ingredientId": "ING_CREAM",
+        "quantity": 50,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PAPAD",
+        "quantity": 4,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
         "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook rajma",
+        "description": "Simmer boiled rajma in a spiced tomato-onion gravy."
+      },
+      {
+        "step": 2,
+        "title": "Cook paneer curry",
+        "description": "Prepare a buttery paneer curry finished with cream."
+      },
+      {
+        "step": 3,
+        "title": "Make naan and rice",
+        "description": "Cook naans and steam the basmati rice."
+      },
+      {
+        "step": 4,
+        "title": "Plate",
+        "description": "Serve the curries with rice, naan and papad."
+      }
+    ],
+    "tags": [
+      "thali",
+      "punjabi",
+      "combo"
+    ]
+  },
+  {
+    "_id": "R0132",
+    "name": "Paneer Tikka Dry",
+    "slug": "paneer-tikka-dry",
+    "description": "Smoky, char-grilled paneer cubes marinated in a yogurt-spice mix.",
+    "baseServings": 4,
+    "prepTime": 25,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/paneer-tikka-dry.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Paneer Tikka Dry.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PANEER",
+        "quantity": 400,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 100,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 100,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
         "unit": "g",
         "required": true,
         "critical": false,
         "scalingRule": "linear"
       },
       {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_KASHMIRI_CHILLI",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GARAM_MASALA",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_LEMON",
+        "quantity": 1,
+        "unit": "piece",
+        "required": true,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
         "ingredientId": "ING_SALT",
-        "quantity": 2,
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Marinate",
+        "description": "Marinate paneer, capsicum and onion cubes in yogurt, ginger-garlic and spices for 30 minutes."
+      },
+      {
+        "step": 2,
+        "title": "Skewer",
+        "description": "Thread onto skewers alternating paneer and vegetables."
+      },
+      {
+        "step": 3,
+        "title": "Grill",
+        "description": "Grill or pan-sear until charred at the edges."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Squeeze lemon over and serve hot with mint chutney."
+      }
+    ],
+    "tags": [
+      "paneer",
+      "grilled",
+      "starter"
+    ]
+  },
+  {
+    "_id": "R0133",
+    "name": "Veg. Steamed Momos",
+    "slug": "veg-steamed-momos",
+    "description": "Delicate steamed dumplings filled with finely chopped mixed vegetables.",
+    "baseServings": 4,
+    "prepTime": 30,
+    "cookTime": 15,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Tibetan",
+    "image": "/images/recipes/veg-steamed-momos.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Veg. Steamed Momos.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_FLOUR",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CABBAGE",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CARROT",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 15,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_GINGER",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SOY_SAUCE",
+        "quantity": 10,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 15,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make dough",
+        "description": "Knead flour with water into a smooth dough and rest 20 minutes."
+      },
+      {
+        "step": 2,
+        "title": "Make filling",
+        "description": "Finely chop vegetables and mix with garlic, ginger and soy sauce."
+      },
+      {
+        "step": 3,
+        "title": "Shape momos",
+        "description": "Roll small discs, fill and pleat into momos."
+      },
+      {
+        "step": 4,
+        "title": "Steam",
+        "description": "Steam for 10-12 minutes until the wrapper turns translucent."
+      }
+    ],
+    "tags": [
+      "momos",
+      "steamed",
+      "street-food"
+    ]
+  },
+  {
+    "_id": "R0134",
+    "name": "Dhokla",
+    "slug": "dhokla",
+    "description": "Light, fluffy steamed besan cakes with a tempered mustard-curry leaf topping.",
+    "baseServings": 4,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "Gujarati",
+    "image": "/images/recipes/dhokla.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Dhokla.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_BESAN",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ENO_FRUIT_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_YOGURT",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MUSTARD_SEEDS",
+        "quantity": 6,
         "unit": "g",
         "required": true,
         "critical": false,
         "scalingRule": "fixed"
       },
       {
-        "ingredientId": "ING_VANILLA",
+        "ingredientId": "ING_CURRY_LEAVES",
         "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GREEN_CHILLI",
+        "quantity": 8,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SUGAR",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 20,
         "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make batter",
+        "description": "Whisk besan with yogurt, water, sugar and salt into a smooth batter."
+      },
+      {
+        "step": 2,
+        "title": "Steam",
+        "description": "Add eno, pour into a greased tin and steam for 15-18 minutes."
+      },
+      {
+        "step": 3,
+        "title": "Temper",
+        "description": "Temper mustard seeds, curry leaves and green chilli, then pour over with a little water."
+      },
+      {
+        "step": 4,
+        "title": "Cut and serve",
+        "description": "Cool slightly, cut into pieces and serve."
+      }
+    ],
+    "tags": [
+      "gujarati",
+      "steamed",
+      "snack"
+    ]
+  },
+  {
+    "_id": "R0135",
+    "name": "Farm Fresh Pizza",
+    "slug": "farm-fresh-pizza",
+    "description": "A garden-fresh pizza loaded with seasonal vegetables.",
+    "baseServings": 4,
+    "prepTime": 30,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Italian",
+    "image": "/images/recipes/farm-fresh-pizza.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Farm Fresh Pizza.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PIZZA_BASE",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PIZZA_SAUCE",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MOZZARELLA",
+        "quantity": 180,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CAPSICUM",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SWEET_CORN",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BASIL",
+        "quantity": 8,
+        "unit": "g",
         "required": false,
         "critical": false,
         "scalingRule": "fixed"
@@ -1106,35 +4221,532 @@
     "steps": [
       {
         "step": 1,
-        "title": "Mix dry ingredients",
-        "description": "Whisk flour, sugar, baking powder and salt."
+        "title": "Prep base",
+        "description": "Spread pizza sauce over the base."
       },
       {
         "step": 2,
-        "title": "Add wet ingredients",
-        "description": "Add milk, eggs and vanilla; mix until just combined."
+        "title": "Add veggies",
+        "description": "Top with mozzarella and a generous mix of fresh vegetables."
       },
       {
         "step": 3,
-        "title": "Heat pan",
-        "description": "Heat a lightly buttered non-stick pan."
+        "title": "Bake",
+        "description": "Bake until the crust is golden and the cheese melted."
       },
       {
         "step": 4,
-        "title": "Cook pancakes",
-        "description": "Pour batter and cook until bubbles form, then flip and cook the other side."
-      },
-      {
-        "step": 5,
-        "title": "Serve",
-        "description": "Serve warm with your preferred topping."
+        "title": "Finish",
+        "description": "Garnish with fresh basil and serve."
       }
     ],
     "tags": [
-      "breakfast",
-      "pancakes",
-      "american",
-      "vegetarian"
+      "pizza",
+      "healthy",
+      "vegetable"
+    ]
+  },
+  {
+    "_id": "R0136",
+    "name": "Dal Chawal",
+    "slug": "dal-chawal",
+    "description": "Simple, comforting tempered lentils served over steamed rice.",
+    "baseServings": 4,
+    "prepTime": 10,
+    "cookTime": 25,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "North Indian",
+    "image": "/images/recipes/dal-chawal.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Dal Chawal.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_TOOR_DAL",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_RICE",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 100,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 60,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CUMIN",
+        "quantity": 5,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_GHEE",
+        "quantity": 20,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil dal",
+        "description": "Boil toor dal with turmeric until soft."
+      },
+      {
+        "step": 2,
+        "title": "Temper",
+        "description": "Temper cumin, onion and tomato in ghee and add to the dal, simmer briefly."
+      },
+      {
+        "step": 3,
+        "title": "Cook rice",
+        "description": "Steam the basmati rice separately."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Serve the dal hot over steamed rice."
+      }
+    ],
+    "tags": [
+      "comfort-food",
+      "dal-rice"
+    ]
+  },
+  {
+    "_id": "R0137",
+    "name": "Veg. Cheese Burger",
+    "slug": "veg-cheese-burger",
+    "description": "A juicy vegetable patty burger loaded with melted cheese.",
+    "baseServings": 2,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "Easy",
+    "dietType": "Vegetarian",
+    "cuisine": "American",
+    "image": "/images/recipes/veg-cheese-burger.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Veg. Cheese Burger.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_BURGER_BUN",
+        "quantity": 2,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_POTATO",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_PEAS",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_BREADCRUMBS",
+        "quantity": 50,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_CHEESE_SLICE",
+        "quantity": 4,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_LETTUCE",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 50,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MAYONNAISE",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 30,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make patty",
+        "description": "Mash boiled potato and peas with spices, shape into patties and coat in breadcrumbs."
+      },
+      {
+        "step": 2,
+        "title": "Pan-fry",
+        "description": "Shallow fry the patties until crisp and golden."
+      },
+      {
+        "step": 3,
+        "title": "Melt cheese",
+        "description": "Place cheese slices on the hot patty to melt slightly."
+      },
+      {
+        "step": 4,
+        "title": "Assemble",
+        "description": "Layer lettuce, tomato, the cheesy patty and mayo between toasted buns and serve."
+      }
+    ],
+    "tags": [
+      "burger",
+      "cheese",
+      "fast-food"
+    ]
+  },
+  {
+    "_id": "R0138",
+    "name": "Misal Pav",
+    "slug": "misal-pav",
+    "description": "Spicy sprouted moth bean curry topped with crunchy farsan, served with pav.",
+    "baseServings": 4,
+    "prepTime": 480,
+    "cookTime": 30,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Maharashtrian",
+    "image": "/images/recipes/misal-pav.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Misal Pav.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_PAV",
+        "quantity": 8,
+        "unit": "piece",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_MOTH_BEANS",
+        "quantity": 250,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_ONION",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_TOMATO",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SEV",
+        "quantity": 80,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_FARSAN_MIX",
+        "quantity": 60,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_RED_CHILLI",
+        "quantity": 8,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_TURMERIC",
+        "quantity": 4,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_LEMON",
+        "quantity": 1,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_CORIANDER",
+        "quantity": 10,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_OIL",
+        "quantity": 25,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 6,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Sprout beans",
+        "description": "Soak and sprout the moth beans overnight, then boil until tender."
+      },
+      {
+        "step": 2,
+        "title": "Make curry",
+        "description": "Cook onion and tomato with turmeric and red chilli powder into a spicy gravy, add the sprouted beans and simmer."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "description": "Top the curry generously with sev, farsan and coriander."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "description": "Serve hot with buttered pav and a wedge of lemon."
+      }
+    ],
+    "tags": [
+      "street-food",
+      "maharashtrian",
+      "spicy"
+    ]
+  },
+  {
+    "_id": "R0139",
+    "name": "Kimchi Ramen",
+    "slug": "kimchi-ramen",
+    "description": "Spicy Korean ramen noodles in a savoury broth topped with tangy kimchi.",
+    "baseServings": 2,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "Medium",
+    "dietType": "Vegetarian",
+    "cuisine": "Korean",
+    "image": "/images/recipes/kimchi-ramen.jpeg",
+    "imageSource": {
+      "source": "local-upload",
+      "originalFilename": "Kimchi Ramen.jpeg"
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ING_RAMEN_NOODLES",
+        "quantity": 200,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_KIMCHI",
+        "quantity": 150,
+        "unit": "g",
+        "required": true,
+        "critical": true,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SPRING_ONION",
+        "quantity": 30,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_GARLIC",
+        "quantity": 10,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SOY_SAUCE",
+        "quantity": 20,
+        "unit": "ml",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      },
+      {
+        "ingredientId": "ING_SESAME_OIL",
+        "quantity": 10,
+        "unit": "ml",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_SESAME_SEEDS",
+        "quantity": 5,
+        "unit": "g",
+        "required": false,
+        "critical": false,
+        "scalingRule": "fixed"
+      },
+      {
+        "ingredientId": "ING_EGG",
+        "quantity": 2,
+        "unit": "piece",
+        "required": false,
+        "critical": false,
+        "scalingRule": "linear"
+      },
+      {
+        "ingredientId": "ING_SALT",
+        "quantity": 3,
+        "unit": "g",
+        "required": true,
+        "critical": false,
+        "scalingRule": "moderate"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil noodles",
+        "description": "Cook the ramen noodles in boiling water until just tender."
+      },
+      {
+        "step": 2,
+        "title": "Make broth",
+        "description": "Simmer garlic, soy sauce and kimchi with water into a savoury broth."
+      },
+      {
+        "step": 3,
+        "title": "Combine",
+        "description": "Add the noodles to the broth and simmer briefly."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "description": "Top with a soft-boiled egg, spring onion, sesame oil and sesame seeds."
+      }
+    ],
+    "tags": [
+      "korean",
+      "noodles",
+      "fusion"
     ]
   }
 ]

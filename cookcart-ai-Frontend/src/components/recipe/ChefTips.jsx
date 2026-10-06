@@ -21,7 +21,7 @@ export default function ChefTips({ tips = [], className = '' }) {
           <Sparkles size={18} />
         </span>
         <div>
-          <h3 className="font-display text-headline-md text-on-surface">AI Chef Tips</h3>
+          <h3 className="font-display text-headline-md text-on-surface">Chef Tips</h3>
           <p className="text-label-sm text-on-surface-variant">
             Straight from the Chef AI
           </p>

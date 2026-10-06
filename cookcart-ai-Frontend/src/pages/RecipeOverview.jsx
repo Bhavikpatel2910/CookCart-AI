@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
@@ -18,7 +18,10 @@ import ChefTips from '../components/recipe/ChefTips.jsx'
 import IngredientCard from '../components/recipe/IngredientCard.jsx'
 import RecipeCard from '../components/recipe/RecipeCard.jsx'
 import Button from '../components/common/Button.jsx'
+import toast from 'react-hot-toast'
 import { useRecipe } from '../hooks/useRecipe.js'
+import { useCart } from '../hooks/useCart.js'
+import { usePantry } from '../hooks/usePantry.js'
 import { useApp } from '../context/AppContext.jsx'
 import { fadeUp, staggerContainer } from '../utils/animations.js'
 
@@ -27,6 +30,18 @@ export default function RecipeOverview() {
   const navigate = useNavigate()
   const { activeRecipe, selectRecipe, loading: recipeLoading, error: recipeError } = useRecipe()
   const { recipes } = useApp()
+  const { addRecipeIngredients } = useCart()
+  const { pantryItems } = usePantry()
+  const [adding, setAdding] = useState(false)
+  const addingRef = useRef(false)
+
+  // Ingredients the user actually has to buy (skip pantry staples + what's already in their pantry).
+  const shoppingIngredients = useMemo(() => {
+    const inPantry = new Set((pantryItems || []).map((item) => item.ingredientId))
+    return (activeRecipe?.scaledIngredients || []).filter(
+      (item) => !item.isPantryStaple && !inPantry.has(item.ingredientId),
+    )
+  }, [activeRecipe, pantryItems])
 
   useEffect(() => {
     if (slug) selectRecipe(slug)
@@ -64,9 +79,33 @@ export default function RecipeOverview() {
     `Pre-measured for ${recipe.servings} servings`,
   ]
 
-  const handleGetIngredients = () => {
-    navigate(`/ingredients/${recipe.slug}`)
+  // One tap: put every ingredient in the cart and land on the cart page, where
+  // the user can place the order.
+  const handleGetIngredients = async () => {
+    if (addingRef.current) return
+    if (shoppingIngredients.length === 0) {
+      toast('Everything for this recipe is already in your pantry.')
+      return
+    }
+    addingRef.current = true
+    setAdding(true)
+    try {
+      await addRecipeIngredients(shoppingIngredients, recipe.recipe_id, { silent: true })
+      toast.success(`${recipe.name} ingredients added to your cart`)
+      navigate('/cart')
+    } catch (error) {
+      console.error('Could not add ingredients to cart:', error)
+      toast.error('Could not add the ingredients. Please try again.')
+    } finally {
+      addingRef.current = false
+      setAdding(false)
+    }
   }
+
+  const buyTotal = shoppingIngredients.reduce(
+    (sum, i) => sum + (i.packOptimization?.totalPrice || 0),
+    0,
+  )
 
   const recommendedRecipes = recipes
     .filter(r => r.slug !== recipe.slug && r.dishCategory === recipe.dishCategory)
@@ -169,7 +208,7 @@ export default function RecipeOverview() {
                         requiredQuantity: ingredient.requiredQuantity,
                         quantity: ingredient.packOptimization?.packCount || 1,
                         product: ingredient.product,
-                        image: ingredient.product?.image,
+                        image: ingredient.product?.image || ingredient.ingredientImage,
                         bg: 'bg-cheese-bg',
                         category: ingredient.ingredientCategory,
                         available: ingredient.inventory?.inStock !== false,
@@ -228,8 +267,9 @@ export default function RecipeOverview() {
                     iconPosition="right"
                     className="w-full justify-between mt-1"
                     onClick={handleGetIngredients}
+                    disabled={adding}
                   >
-                    Get Ingredients · ₹{recipe.scaledIngredients?.reduce((sum, i) => sum + (i.packOptimization?.totalPrice || 0), 0).toLocaleString('en-IN') ?? 349}
+                    {adding ? 'Adding to cart…' : `Get Ingredients · ₹${buyTotal.toLocaleString('en-IN')}`}
                   </Button>
                   <p className="flex items-center justify-center gap-1.5 text-label-sm text-on-surface-variant">
                     <Sparkles size={14} className="text-success-veg" />

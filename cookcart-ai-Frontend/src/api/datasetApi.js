@@ -43,12 +43,19 @@ async function fetchBackendList(resource, key) {
 }
 
 function normalizeRecipe(recipe) {
+  const prepTimeMinutes = recipe.prep_time_minutes ?? recipe.prep_time ?? recipe.prepTime ?? 0;
+  const cookTimeMinutes = recipe.cook_time_minutes ?? recipe.cook_time ?? recipe.cookTime ?? 0;
+  const totalTimeMinutes =
+    recipe.total_time_minutes ?? recipe.totalTime ?? (prepTimeMinutes + cookTimeMinutes);
   return {
     ...recipe,
     recipe_id: recipe.recipe_id || recipe._id,
     base_servings: recipe.base_servings || recipe.baseServings || 1,
-    prep_time: recipe.prep_time || recipe.prepTime || 0,
-    cook_time: recipe.cook_time || recipe.cookTime || 0,
+    prep_time: prepTimeMinutes,
+    cook_time: cookTimeMinutes,
+    prep_time_minutes: prepTimeMinutes,
+    cook_time_minutes: cookTimeMinutes,
+    total_time_minutes: totalTimeMinutes,
     diet_type: recipe.diet_type || recipe.dietType,
     imageUrl: recipe.imageUrl || recipe.image,
     ingredients: (recipe.ingredients || []).map((item) => ({
@@ -115,7 +122,20 @@ export async function loadDataset() {
 
       const recipes = rawRecipes.map(normalizeRecipe);
       const ingredients = rawIngredients.map(normalizeIngredient);
-      const products = rawProducts.map(normalizeProduct);
+      const rawProductList = rawProducts.map(normalizeProduct);
+
+      // Products almost never have their own photo (image/imageUrl is null
+      // in the seed data) — they're just a specific SKU of an ingredient, so
+      // fall back to that ingredient's real local photo instead of letting
+      // downstream code fall through to a generic/unrelated stock image.
+      const ingredientImageById = new Map(
+        ingredients.map((ingredient) => [ingredient.ingredient_id, ingredient.imageUrl || ingredient.image]),
+      );
+      const products = rawProductList.map((product) => ({
+        ...product,
+        imageUrl: product.imageUrl || ingredientImageById.get(product.ingredient_id) || null,
+      }));
+
       const inventory = products.map((product) => ({
         sku_id: product.sku_id,
         in_stock: product.inventory?.in_stock !== false,

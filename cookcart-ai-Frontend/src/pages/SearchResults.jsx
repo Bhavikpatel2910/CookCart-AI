@@ -1,41 +1,187 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Plus } from 'lucide-react'
-import RecipeHero from '../components/recipe/RecipeHero.jsx'
+import { ArrowRight, Clock, Flame, Plus, SearchX, Star, UtensilsCrossed } from 'lucide-react'
 import Chip from '../components/common/Chip.jsx'
+import SearchBar from '../components/common/SearchBar.jsx'
+import RecipeCard from '../components/recipe/RecipeCard.jsx'
+import SmartImage from '../components/common/SmartImage.jsx'
+import EmptyState from '../components/common/EmptyState.jsx'
 import { useCart } from '../hooks/useCart.js'
 import { fadeUp, staggerContainer } from '../utils/animations.js'
 import { searchWithIntent } from '../services/searchService.js'
-import SmartImage from '../components/common/SmartImage.jsx'
-import EmptyState from '../components/common/EmptyState.jsx'
+import { formatCurrency } from '../utils/helpers.js'
 
-const capitalize = (value = '') =>
-  value.replace(/^\w/, (c) => c.toUpperCase())
+const EMPTY = { recipes: [], ingredients: [], products: [], topMatch: null, intent: null }
+
+const capitalize = (value = '') => value.replace(/^\w/, (c) => c.toUpperCase())
+
+function SectionHeading({ title, count, hint }) {
+  return (
+    <div className="flex items-end justify-between gap-4 mb-5">
+      <div>
+        <h2 className="font-display text-2xl md:text-[28px] font-bold text-on-surface leading-tight">{title}</h2>
+        {hint && <p className="text-body-md text-on-surface-variant mt-1">{hint}</p>}
+      </div>
+      {count != null && (
+        <span className="shrink-0 text-label-sm font-semibold text-on-surface-variant bg-white border border-border-light rounded-full px-3 py-1">
+          {count} {count === 1 ? 'result' : 'results'}
+        </span>
+      )}
+    </div>
+  )
+}
+
+// The best recipe match: image on one side, details + actions on the other.
+function TopRecipeMatch({ recipe }) {
+  const metaChips = [
+    recipe.time?.total != null && { icon: Clock, label: `${recipe.time.total} min` },
+    recipe.difficulty && { icon: Flame, label: recipe.difficulty },
+    recipe.calories != null && { icon: Flame, label: `${recipe.calories} kcal` },
+  ].filter(Boolean)
+
+  return (
+    <article className="card-surface overflow-hidden grid grid-cols-1 md:grid-cols-5">
+      <Link to={`/recipe/${recipe.slug}`} className="relative md:col-span-2 block h-56 md:h-auto md:min-h-[300px] overflow-hidden group">
+        <SmartImage
+          src={recipe.image}
+          alt={recipe.name}
+          kind="recipe"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-white/95 text-on-surface text-label-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">
+          <span
+            className={`w-2.5 h-2.5 rounded-sm border flex items-center justify-center ${recipe.isVeg ? 'border-success-veg' : 'border-error'}`}
+          >
+            <span className={`w-1 h-1 rounded-full ${recipe.isVeg ? 'bg-success-veg' : 'bg-error'}`} />
+          </span>
+          {recipe.isVeg ? 'Veg' : 'Non-veg'}
+        </span>
+      </Link>
+
+      <div className="md:col-span-3 p-6 md:p-8 flex flex-col gap-4">
+        <span className="section-eyebrow">Best match</span>
+        <div>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-on-surface leading-tight">{recipe.name}</h2>
+          {recipe.description && (
+            <p className="text-body-md text-on-surface-variant mt-2 line-clamp-3 max-w-2xl">{recipe.description}</p>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {recipe.cuisine && (
+            <span className="inline-flex items-center gap-1.5 bg-saffron-soft text-saffron font-semibold text-label-sm px-3 py-1.5 rounded-full">
+              <UtensilsCrossed size={14} /> {recipe.cuisine}
+            </span>
+          )}
+          {metaChips.map(({ icon: Icon, label }) => (
+            <span key={label} className="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface text-label-sm px-3 py-1.5 rounded-full">
+              <Icon size={14} className="text-on-surface-variant" /> {label}
+            </span>
+          ))}
+          {recipe.rating && (
+            <span className="inline-flex items-center gap-1.5 bg-surface-container-low text-on-surface text-label-sm px-3 py-1.5 rounded-full">
+              <Star size={14} className="text-warning fill-warning" /> {recipe.rating}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-border-light flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <p className="text-label-sm text-on-surface-variant">All ingredients from</p>
+            <p className="font-display text-3xl font-bold text-on-surface">
+              {recipe.estimatedCost != null ? formatCurrency(recipe.estimatedCost) : '—'}
+            </p>
+          </div>
+          <Link
+            to={`/recipe/${recipe.slug}`}
+            className="btn-gradient text-white text-label-md font-semibold px-6 py-3.5 rounded-2xl shadow-glow-green hover:shadow-glow-green-lg hover:-translate-y-0.5 active:scale-95 transition-all inline-flex items-center justify-center gap-2"
+          >
+            View recipe &amp; get ingredients <ArrowRight size={18} />
+          </Link>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function ProductCard({ product, onAdd }) {
+  const hasDiscount = product.mrp > product.price
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -4 }}
+      className="group h-full bg-white rounded-2xl border border-border-light/70 p-3 shadow-card-soft hover:shadow-card-hover transition-shadow flex flex-col"
+    >
+      <div className="relative aspect-square rounded-xl bg-cheese-bg overflow-hidden mb-3">
+        <SmartImage
+          src={product}
+          alt={product.product_name}
+          kind="product"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <span
+          className={`absolute top-2 left-2 w-4 h-4 bg-white border rounded-sm flex items-center justify-center ${
+            product.vegetarian === false ? 'border-error' : 'border-success-veg'
+          }`}
+          title={product.vegetarian === false ? 'Non-veg' : 'Veg'}
+        >
+          <span className={`w-2 h-2 rounded-full ${product.vegetarian === false ? 'bg-error' : 'bg-success-veg'}`} />
+        </span>
+      </div>
+
+      <div className="flex-1 px-0.5">
+        <h3 className="text-label-md text-on-surface font-semibold line-clamp-2 leading-snug min-h-[2.5rem]">
+          {product.product_name}
+        </h3>
+        <p className="text-label-sm text-on-surface-variant mt-1">
+          {product.pack_size}
+          {product.unit}
+          {product.brand ? ` · ${product.brand}` : ''}
+        </p>
+      </div>
+
+      <div className="mt-3 pt-3 border-t border-border-light/70 flex items-center justify-between gap-2">
+        <div className="leading-tight">
+          <p className="text-label-md font-bold text-on-surface">{formatCurrency(product.price)}</p>
+          {hasDiscount && <p className="text-label-sm text-on-surface-variant line-through">{formatCurrency(product.mrp)}</p>}
+        </div>
+        <button
+          type="button"
+          aria-label={`Add ${product.product_name} to cart`}
+          onClick={() => onAdd(product)}
+          className="shrink-0 inline-flex items-center gap-1 pl-3 pr-3.5 h-9 rounded-full border border-success-veg text-success-veg text-label-sm font-bold hover:bg-success-veg hover:text-white active:scale-95 transition-colors"
+        >
+          <Plus size={16} /> ADD
+        </button>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function SearchResults() {
+  const navigate = useNavigate()
   const [params] = useSearchParams()
   const { query: pathQuery } = useParams()
   const query = (params.get('q') ?? pathQuery ?? '').trim()
+  const [draft, setDraft] = useState(query)
   const [activeFilter, setActiveFilter] = useState('All')
-  const [searchResults, setSearchResults] = useState({ recipes: [], ingredients: [], products: [], topMatch: null, intent: null })
+  const [searchResults, setSearchResults] = useState(EMPTY)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const { addItem } = useCart()
-  const abortControllerRef = useRef(null)
+  const requestRef = useRef(0)
+
+  useEffect(() => setDraft(query), [query])
 
   useEffect(() => {
-    let cancelled = false
-    
+    const requestId = ++requestRef.current
+    const isCurrent = () => requestRef.current === requestId
+
     async function doSearch() {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort()
-      }
-      const controller = new AbortController()
-      abortControllerRef.current = controller
-      
+      setActiveFilter('All')
       if (!query) {
-        setSearchResults({ recipes: [], ingredients: [], products: [], topMatch: null, intent: null })
+        setSearchResults(EMPTY)
         setLoading(false)
         return
       }
@@ -43,166 +189,152 @@ export default function SearchResults() {
       setError('')
       try {
         const results = await searchWithIntent(query)
-        if (!cancelled && !controller.signal.aborted) setSearchResults(results)
+        if (isCurrent()) setSearchResults(results)
       } catch (searchError) {
-        if (searchError.name === 'AbortError') return
         console.error('CookCart search failed:', searchError)
-        if (!cancelled && !controller.signal.aborted) {
-          setSearchResults({ recipes: [], ingredients: [], products: [], topMatch: null, intent: null })
+        if (isCurrent()) {
+          setSearchResults(EMPTY)
           setError('We could not search right now. Please try again.')
         }
       } finally {
-        if (!cancelled && !controller.signal.aborted) setLoading(false)
+        if (isCurrent()) setLoading(false)
       }
     }
     doSearch()
-    return () => { 
-      cancelled = true 
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort()
-      }
+    return () => {
+      requestRef.current += 1
     }
   }, [query])
 
-  const { products, topMatch, intent } = searchResults
+  const { products, recipes, topMatch } = searchResults
+  const topRecipe = topMatch?.type === 'recipe' ? topMatch.data : null
+  const moreRecipes = useMemo(
+    () => recipes.filter((r) => r.slug !== topRecipe?.slug).slice(0, 6),
+    [recipes, topRecipe],
+  )
 
   const categoryOptions = useMemo(
     () => ['All', ...[...new Set(products.map((p) => p.category).filter(Boolean))].sort()],
     [products],
   )
+  const filteredProducts = products.filter((p) => activeFilter === 'All' || p.category === activeFilter)
 
-  const results = products.filter((product) =>
-    activeFilter === 'All' ? true : product.category === activeFilter,
-  )
+  const nothingFound = !loading && !error && query && !topMatch && products.length === 0
+  const recipeCount = recipes.length
+  const summary = [
+    recipeCount ? `${recipeCount} recipe${recipeCount === 1 ? '' : 's'}` : null,
+    products.length ? `${products.length} product${products.length === 1 ? '' : 's'}` : null,
+  ].filter(Boolean).join(' · ')
 
   return (
-    <div className="max-w-page mx-auto px-4 md:px-8 py-10 md:py-14 flex flex-col gap-8">
-      <motion.div variants={fadeUp} initial="hidden" animate="show">
-        <p className="text-label-sm text-on-surface-variant mb-2">
-          Showing results for
-        </p>
-        <h1 className="font-display text-3xl md:text-[40px] font-bold text-on-surface tracking-tight">
-          {query ? `“${query}”` : 'Start with a dish or ingredient'}
-        </h1>
-      </motion.div>
+    <div className="max-w-page mx-auto px-4 md:px-8 py-8 md:py-12 flex flex-col gap-10">
+      <motion.header variants={fadeUp} initial="hidden" animate="show" className="flex flex-col gap-5">
+        <div>
+          <p className="section-eyebrow">Search results</p>
+          <h1 className="font-display text-3xl md:text-[40px] font-bold text-on-surface leading-tight mt-1">
+            {query ? <>Results for “{query}”</> : 'Start with a dish or ingredient'}
+          </h1>
+          {summary && !loading && <p className="text-body-md text-on-surface-variant mt-1">{summary}</p>}
+        </div>
+        <div className="max-w-2xl">
+          <SearchBar
+            value={draft}
+            onChange={setDraft}
+            onSubmit={(value) => value && navigate(`/search?q=${encodeURIComponent(value)}`)}
+            placeholder="Search for products or dishes"
+          />
+        </div>
+      </motion.header>
 
       {loading ? (
-        <div className="flex items-center justify-center h-48">
+        <div className="flex flex-col items-center justify-center gap-3 h-56">
           <div className="animate-spin rounded-full h-12 w-12 border-4 border-success-veg border-t-transparent" />
+          <p className="text-label-md text-on-surface-variant">Finding the best matches…</p>
         </div>
       ) : error ? (
         <EmptyState title="Search unavailable" description={error} />
-      ) : topMatch?.type === 'recipe' && topMatch.data ? (
-        <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.05 }}>
-          <RecipeHero recipe={topMatch.data} />
-        </motion.div>
-      ) : topMatch?.type === 'ingredient' && topMatch.data ? (
-        <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.05 }}>
-          <div className="bg-surface rounded-2xl border border-border-light p-8 text-center">
-            <h2 className="font-display text-2xl font-bold text-on-surface">{topMatch.data.canonical_name || topMatch.data.display_name}</h2>
-            <p className="text-body-md text-on-surface-variant mt-2">Found as ingredient. Search for recipes using this ingredient.</p>
-          </div>
-        </motion.div>
+      ) : nothingFound ? (
+        <EmptyState
+          icon={SearchX}
+          title="No matches found"
+          description="Try a dish like Dal Tadka, Masala Dosa or Veg Burger — or search for an ingredient such as paneer or tomato."
+          actionLabel="Browse all recipes"
+          onAction={() => navigate('/recipes')}
+        />
       ) : (
-        <div className="bg-surface rounded-2xl border border-border-light p-8 text-center">
-          <h2 className="font-display text-2xl font-bold text-on-surface">No recipe match yet</h2>
-          <p className="text-body-md text-on-surface-variant mt-2">Try Paneer Butter Masala, Biryani, Pav Bhaji, or Pasta.</p>
-        </div>
-      )}
+        <>
+          {topRecipe && (
+            <motion.section variants={fadeUp} initial="hidden" animate="show">
+              <TopRecipeMatch recipe={topRecipe} />
+            </motion.section>
+          )}
 
-      <motion.section
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="flex flex-col gap-5"
-      >
-        <motion.div variants={fadeUp} className="flex items-center justify-between">
-          <h2 className="font-display text-2xl md:text-[28px] font-bold text-on-surface">
-            {intent === 'product' ? 'Related Products' : 'More results'}
-          </h2>
-          <span className="text-label-sm text-on-surface-variant">{results.length} items</span>
-        </motion.div>
+          {topMatch?.type === 'ingredient' && topMatch.data && (
+            <section className="card-surface p-6 md:p-8 flex items-center gap-4">
+              <span className="w-12 h-12 rounded-2xl bg-success-veg/10 text-success-veg flex items-center justify-center shrink-0">
+                <UtensilsCrossed size={22} />
+              </span>
+              <div>
+                <h2 className="font-display text-2xl font-bold text-on-surface">
+                  {topMatch.data.canonical_name || topMatch.data.display_name}
+                </h2>
+                <p className="text-body-md text-on-surface-variant">Showing the products we stock for this ingredient.</p>
+              </div>
+            </section>
+          )}
 
-        <motion.div variants={fadeUp} className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-          {categoryOptions.map((filter) => (
-            <Chip
-              key={filter}
-              active={activeFilter === filter}
-              onClick={() => setActiveFilter(filter)}
-            >
-              {capitalize(filter)}
-            </Chip>
-          ))}
-        </motion.div>
-
-        {results.length === 0 ? (
-          <EmptyState
-            title="No products match"
-            description="Try a different category or search for another dish or ingredient."
-          />
-        ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {results.map((product, index) => (
-            <motion.div
-              key={product.sku_id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -4 }}
-              className="bg-surface-container-lowest rounded-xl p-3 shadow-card-soft flex flex-col relative group"
-            >
-              <div className="absolute top-2 left-2 z-10">
-                <span
-                  className={`w-3 h-3 border flex items-center justify-center rounded-sm bg-white ${
-                    product.vegetarian ? 'border-success-veg' : 'border-error'
-                  }`}
-                >
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full ${
-                      product.vegetarian ? 'bg-success-veg' : 'bg-error'
-                    }`}
+          {moreRecipes.length > 0 && (
+            <section>
+              <SectionHeading title="More recipes you might like" hint="Similar dishes you can cook at home" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                {moreRecipes.map((r, index) => (
+                  <RecipeCard
+                    key={r.recipeId}
+                    delay={index * 0.05}
+                    recipe={{
+                      id: r.recipeId,
+                      slug: r.slug,
+                      name: r.name,
+                      image: r.image,
+                      cardImage: r.image,
+                      time: { total: r.totalTime },
+                      difficulty: r.difficulty,
+                      isVeg: r.isVeg,
+                    }}
                   />
-                </span>
+                ))}
               </div>
-              <div className="aspect-square bg-cheese-bg rounded-lg mb-3 relative overflow-hidden">
-                <SmartImage
-                  src={product.image}
-                  alt={product.product_name}
-                  kind="product"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="text-label-md text-on-surface line-clamp-2 leading-tight">
-                  {product.product_name}
-                </h4>
-                <p className="text-label-sm text-on-surface-variant mt-1">{product.pack_size}{product.unit}</p>
-              </div>
-              <div className="mt-3 flex items-center justify-between">
-                <div>
-                  <p className="text-label-md text-on-surface font-bold">₹{product.price}</p>
-                  {product.mrp > product.price && (
-                    <p className="text-label-sm text-on-surface-variant line-through">
-                      ₹{product.mrp}
-                    </p>
-                  )}
+            </section>
+          )}
+
+          {products.length > 0 && (
+            <motion.section variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <SectionHeading
+                title={topRecipe ? 'Related products' : 'Products'}
+                count={filteredProducts.length}
+              />
+              {categoryOptions.length > 2 && (
+                <div className="flex gap-2 overflow-x-auto no-scrollbar pb-3 -mt-1 mb-2">
+                  {categoryOptions.map((filter) => (
+                    <Chip key={filter} active={activeFilter === filter} onClick={() => setActiveFilter(filter)}>
+                      {capitalize(filter)}
+                    </Chip>
+                  ))}
                 </div>
-                <button
-                  type="button"
-                  aria-label={`Add ${product.product_name} to cart`}
-                  onClick={() => addItem({ ...product, quantity: 1 })}
-                  className="w-8 h-8 rounded-full border border-success-veg text-success-veg flex items-center justify-center hover:bg-success-veg hover:text-white transition-colors"
-                >
-                  <Plus size={18} />
-                </button>
+              )}
+              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-5 items-stretch">
+                {filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product.sku_id}
+                    product={product}
+                    onAdd={(p) => addItem({ ...p, skuId: p.sku_id, name: p.product_name, quantity: 1 })}
+                  />
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
-        )}
-      </motion.section>
+            </motion.section>
+          )}
+        </>
+      )}
     </div>
   )
 }

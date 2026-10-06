@@ -1,16 +1,5 @@
 [
   {
-    "_id": "IMG_PBM001",
-    "recipeId": "PBM001",
-    "type": "hero",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer_Butter_Masala.jpg",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paneer_Butter_Masala.jpg",
-    "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Krishnakerala",
-    "verified": true
-  },
-  {
     "_id": "IMG_DM001",
     "recipeId": "DM001",
     "type": "hero",
@@ -54,28 +43,5 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Allen Marx 12",
     "verified": true
-  },
-  {
-    "_id": "IMG_SMO001",
-    "recipeId": "SMO001",
-    "type": "hero",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/MASALA_OATS.JPG",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MASALA_OATS.JPG",
-    "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Mkr.lines",
-    "verified": true
-  },
-  {
-    "_id": "IMG_CP001",
-    "recipeId": "CP001",
-    "type": "hero",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pancakes_(1).jpg",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancakes_(1).jpg",
-    "source": "Wikimedia Commons",
-    "license": "Public Domain / CC0 Public Domain Mark",
-    "attribution": "Renee Comet / National Cancer Institute",
-    "verified": true
   }
 ]
-

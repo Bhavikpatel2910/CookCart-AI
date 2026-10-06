@@ -11,6 +11,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "seed": "node src/data/seed.js",
+    "audit:images": "node scripts/auditImages.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "keywords": [],

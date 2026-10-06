@@ -4,7 +4,7 @@ import { getAllUsers } from '../api/userApi.js';
 import { getAllIngredients } from '../api/ingredientApi.js';
 import { getProductsByIngredient } from '../api/productApi.js';
 import { getCurrentUserFromStorage } from '../api/userApi.js';
-import { getProductImageUrl } from '../utils/imageUtils.js';
+import { getProductImageUrl, getIngredientImageUrl } from '../utils/imageUtils.js';
 import { PantryContext } from './context.js';
 
 export function usePantry() {
@@ -44,7 +44,9 @@ async function enrichPantryItems(rawItems) {
       unit: item.unit || 'pack',
       inPantry: item.inPantry !== false,
       price: product?.price || 0,
-      image: getProductImageUrl(product || { name: ingredient?.canonical_name || item.ingredientId }),
+      image: product?.image
+        ? getProductImageUrl(product)
+        : getIngredientImageUrl(ingredient || { name: item.ingredientId }),
       bg: ingredient ? CATEGORY_BG_MAP[ingredient.category] || 'bg-surface-container-low' : 'bg-surface-container-low',
       category: ingredient?.category || 'Pantry',
     };
@@ -155,7 +157,9 @@ export function PantryProvider({ children }) {
       unit,
       inPantry: true,
       price: product?.price || 0,
-      image: getProductImageUrl(product || { name: ingredient?.canonical_name || ingredientName }),
+      image: product?.image
+        ? getProductImageUrl(product)
+        : getIngredientImageUrl(ingredient || { name: ingredientName }),
       bg: ingredient ? CATEGORY_BG_MAP[ingredient.category] || 'bg-surface-container-low' : 'bg-surface-container-low',
       category: ingredient?.category || 'Pantry',
     };

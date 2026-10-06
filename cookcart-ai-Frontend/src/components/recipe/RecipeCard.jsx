@@ -56,6 +56,8 @@ export default function RecipeCard({
     )
   }
 
+  const isDiscovery = variant === 'discovery'
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
@@ -63,9 +65,9 @@ export default function RecipeCard({
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, delay }}
       whileHover={{ y: -6 }}
-      className="bg-surface-container-lowest rounded-[20px] shadow-card-soft flex flex-col overflow-hidden border border-border-light/50 group"
+      className="h-full bg-surface-container-lowest rounded-3xl shadow-card-soft hover:shadow-card-hover transition-shadow duration-300 flex flex-col overflow-hidden border border-border-light/60 group"
     >
-      <Link to={`/recipe/${slug}`} className="relative h-44 md:h-48 block overflow-hidden">
+      <Link to={`/recipe/${slug}`} className="relative h-48 shrink-0 block overflow-hidden">
         <SmartImage
           src={img}
           alt={name}
@@ -73,7 +75,7 @@ export default function RecipeCard({
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <VegBadge isVeg={isVeg} className="absolute top-3 left-3" />
-        {variant === 'discovery' && (
+        {isDiscovery && (
           <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-label-sm flex items-center gap-1 shadow-sm">
             <Timer size={14} className="text-warning" />
             {time.total} mins
@@ -81,15 +83,16 @@ export default function RecipeCard({
         )}
       </Link>
 
-      <div className="p-4 flex flex-col flex-grow">
-        <Link to={`/recipe/${slug}`}>
-          <h3 className="font-display text-[20px] leading-tight font-semibold text-on-surface mb-2 hover:text-secondary transition-colors">
+      {/* Fixed vertical rhythm: title block (always 2 lines tall) → meta row → footer pinned to bottom */}
+      <div className="p-5 flex flex-col flex-grow gap-3">
+        <Link to={`/recipe/${slug}`} className="block">
+          <h3 className="font-display text-[20px] leading-[1.25] font-semibold text-on-surface line-clamp-2 h-[2.5em] hover:text-secondary transition-colors">
             {name}
           </h3>
         </Link>
 
-        {variant === 'discovery' ? (
-          <div className="flex items-center gap-2 text-label-sm text-on-surface-variant">
+        {isDiscovery ? (
+          <div className="flex items-center gap-2 text-label-sm text-on-surface-variant h-5">
             <span className="flex items-center gap-1">
               <span
                 className={`w-2 h-2 rounded-sm border flex items-center justify-center p-[1px] ${
@@ -107,7 +110,7 @@ export default function RecipeCard({
             {rating && <span className="ml-auto flex items-center gap-1">★ {rating}</span>}
           </div>
         ) : (
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 h-5">
             <span className="flex items-center gap-1 text-label-sm text-on-surface-variant">
               <Clock size={16} /> {time.total} mins
             </span>
@@ -117,17 +120,17 @@ export default function RecipeCard({
           </div>
         )}
 
-        {variant === 'discovery' ? (
-          <div className="mt-auto pt-3 flex items-center justify-between border-t border-border-light">
-            <div className="flex flex-col">
-              <span className="text-label-sm text-on-surface-variant">Ingredients from</span>
-              <span className="text-label-md font-bold text-on-surface">
+        {isDiscovery ? (
+          <div className="mt-auto pt-4 flex items-center justify-between gap-3 border-t border-border-light">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-label-sm text-on-surface-variant leading-none">Ingredients from</span>
+              <span className="text-label-md font-bold text-on-surface leading-none">
                 {formatCurrency(price)}
               </span>
             </div>
             <Link
               to={`/recipe/${slug}`}
-              className="bg-success-veg text-white px-4 py-2 rounded-xl text-label-md font-semibold shadow-md hover:shadow-lg active:scale-95 transition-all inline-flex items-center gap-1.5"
+              className="bg-success-veg text-white px-4 py-2.5 rounded-xl text-label-md font-semibold shadow-md hover:shadow-lg active:scale-95 transition-all inline-flex items-center gap-1.5"
             >
               Cook This <ArrowRight size={16} />
             </Link>

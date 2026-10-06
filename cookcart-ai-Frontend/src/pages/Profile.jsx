@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
-import { ArrowRight, Bell, ChefHat, CreditCard, Heart, History, Leaf, MapPin, Package, Settings, ShieldCheck, Sparkles, Star, UtensilsCrossed, LogOut } from 'lucide-react'
+import { ArrowRight, Bell, ChefHat, CreditCard, Heart, History, Leaf, MapPin, Package, Settings, ShieldCheck, Star, UtensilsCrossed, LogOut } from 'lucide-react'
 import RecipeCard from '../components/recipe/RecipeCard.jsx'
 import SmartImage from '../components/common/SmartImage.jsx'
 import { useAuth } from '../hooks/useAuth.js'
@@ -109,13 +109,6 @@ export default function Profile() {
             </button>
             <button
               type="button"
-              onClick={() => navigate('/chef')}
-              className="bg-accent-green text-brand-dark px-5 py-2.5 rounded-xl text-label-sm font-bold hover:-translate-y-0.5 transition-all"
-            >
-              + New Recipe
-            </button>
-            <button
-              type="button"
               aria-label="Log out"
               onClick={() => { logout(); navigate('/') }}
               className="text-white/80 hover:text-white text-label-sm inline-flex items-center justify-center gap-1"
@@ -196,32 +189,6 @@ export default function Profile() {
             })}
           </motion.nav>
 
-          {/* AI chef card */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 0.15 }}
-            className="bg-gradient-to-br from-success-veg to-primary rounded-2xl p-6 text-white relative overflow-hidden"
-          >
-            <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-xl" />
-            <span className="w-11 h-11 rounded-full bg-accent-green text-brand-dark flex items-center justify-center mb-3 relative z-10">
-              <Sparkles size={20} />
-            </span>
-            <h3 className="font-display text-headline-md font-bold relative z-10">
-              Ask your AI Chef
-            </h3>
-            <p className="text-white/80 text-label-md mt-1 relative z-10">
-              Get meal ideas, substitute ingredients, or plan a week of dinners.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate('/chef')}
-              className="mt-4 bg-white text-success-veg font-bold px-5 py-2.5 rounded-xl text-label-sm hover:-translate-y-0.5 transition-all relative z-10"
-            >
-              Open AI Chef
-            </button>
-          </motion.div>
         </div>
 
         {/* Right: saved recipes + order history */}

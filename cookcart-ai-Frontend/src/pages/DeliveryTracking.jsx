@@ -9,7 +9,7 @@ import Button from '../components/common/Button.jsx'
 import SmartImage from '../components/common/SmartImage.jsx'
 import EmptyState from '../components/common/EmptyState.jsx'
 import { fadeUp } from '../utils/animations.js'
-import { formatCurrency, formatTime } from '../utils/helpers.js'
+import { formatCurrency, formatDateTime } from '../utils/helpers.js'
 import { getOrderDisplay } from '../api/orderApi.js'
 
 export default function DeliveryTracking() {
@@ -54,7 +54,7 @@ export default function DeliveryTracking() {
   }
 
   const placedAt = order.created_at
-    ? `${formatTime(order.created_at)}, ${new Date(order.created_at).toLocaleDateString('en-IN')}`
+    ? formatDateTime(order.created_at)
     : 'Just now'
 
   return (

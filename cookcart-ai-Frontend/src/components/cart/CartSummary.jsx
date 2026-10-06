@@ -26,7 +26,7 @@ export default function CartSummary({ totals, onCheckout, className = '' }) {
             Delivery in {BRAND.deliveryTime}
           </p>
           <p className="text-label-sm text-on-surface-variant">
-            To C-402, Green Valley Apartments
+            Confirm your address at checkout
           </p>
         </div>
       </div>

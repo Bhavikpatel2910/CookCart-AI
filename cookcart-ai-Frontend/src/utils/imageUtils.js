@@ -1,5 +1,5 @@
-// Centralized remote image resolution. Legacy local paths are ignored because
-// deleted image folders are not part of the frontend distribution.
+// Centralized image resolution. Supports remote (https://) URLs as well as
+// local images served from the /public folder (e.g. /images/recipes/*.jpeg).
 const UNSPLASH = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=82`;
 
 const IMAGE_MAP = {
@@ -39,7 +39,12 @@ const FALLBACK_PRODUCT = UNSPLASH('photo-1606787366850-de6330128bfc');
 const FALLBACK_INGREDIENT = UNSPLASH('photo-1542838132-92c53300491e');
 
 function isRemoteUrl(value) {
-  return typeof value === 'string' && /^https:\/\//i.test(value);
+  // Accepts absolute https:// URLs, plus local paths served from /public
+  // (root-relative, e.g. /images/recipes/idli.jpeg) and data URIs.
+  return (
+    typeof value === 'string' &&
+    (/^https:\/\//i.test(value) || /^data:/i.test(value) || value.startsWith('/'))
+  );
 }
 
 function entityText(entity) {
@@ -67,8 +72,8 @@ export function resolveImageUrl(value, fallback = FALLBACK_RECIPE) {
 export function getRecipeImageUrl(recipe) { return resolveImageUrl(recipe, FALLBACK_RECIPE); }
 export function getProductImageUrl(product) { return resolveImageUrl(product, FALLBACK_PRODUCT); }
 export function getIngredientImageUrl(ingredient, product) {
-  return product ? resolveImageUrl(product, mappedImage(ingredient, FALLBACK_INGREDIENT))
-    : resolveImageUrl(ingredient, FALLBACK_INGREDIENT);
+  const ingredientFallback = resolveImageUrl(ingredient, FALLBACK_INGREDIENT);
+  return product ? resolveImageUrl(product, ingredientFallback) : ingredientFallback;
 }
 export const getRecipeImage = getRecipeImageUrl;
 export const getProductImage = getProductImageUrl;

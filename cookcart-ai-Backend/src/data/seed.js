@@ -74,7 +74,11 @@ const seedDatabase = async () => {
         unit: raw.unit,
         price: raw.price,
         inventory: raw.inventory ?? 0,
-        image: raw.image || undefined,
+        // Products rarely carry their own photo; fall back to the ingredient's image
+        image:
+          raw.image ||
+          rawIngredients.find((i) => i._id === raw.ingredientId)?.image ||
+          undefined,
         category: raw.category,
         active: raw.active ?? true,
       });

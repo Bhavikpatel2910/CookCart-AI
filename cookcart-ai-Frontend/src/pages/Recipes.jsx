@@ -26,7 +26,7 @@ export default function Recipes() {
   }, [recipes])
 
   const handleSearch = (value) => {
-    navigate(`/search?q=${encodeURIComponent(value || 'Paneer Butter Masala')}`)
+    navigate(`/search?q=${encodeURIComponent(value || 'Aloo Paratha')}`)
   }
 
   if (loading) {
@@ -60,7 +60,7 @@ export default function Recipes() {
             value={query}
             onChange={setQuery}
             onSubmit={handleSearch}
-            placeholder="Search Paneer Butter Masala, Biryani…"
+            placeholder="Search Aloo Paratha, Biryani…"
           />
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function Recipes() {
             See all <ArrowRight size={16} />
           </button>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
           {popular.map((recipe, index) => (
             <RecipeCard
               key={recipe.recipeId}
@@ -159,30 +159,6 @@ export default function Recipes() {
         </div>
       </motion.section>
 
-      <motion.section variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <div className="bg-brand-dark rounded-[28px] p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute -right-16 -top-16 w-64 h-64 bg-success-veg/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 left-10 w-56 h-56 bg-accent-green/10 rounded-full blur-3xl" />
-          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="font-display text-2xl md:text-4xl font-bold text-white tracking-tight">
-                Craving something specific?
-              </h2>
-              <p className="text-body-md text-white/70 mt-2 max-w-lg">
-                Type any dish and the AI Chef will build the exact ingredient
-                list, quantities and cooking steps for it.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => document.getElementById('chef-search-input')?.focus()}
-              className="shrink-0 bg-success-veg text-white text-label-md font-semibold px-8 py-4 rounded-2xl shadow-glow-green hover:shadow-glow-green-lg hover:-translate-y-1 transition-all inline-flex items-center gap-2"
-            >
-              Ask the AI Chef <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-      </motion.section>
     </div>
   )
 }

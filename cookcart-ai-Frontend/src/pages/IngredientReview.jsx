@@ -21,7 +21,7 @@ export default function IngredientReview() {
   const continuingRef = useRef(false)
 
   useEffect(() => {
-    const targetSlug = slug || (!activeRecipe ? 'paneer-butter-masala' : null)
+    const targetSlug = slug || (!activeRecipe ? 'aloo-paratha' : null)
     if (targetSlug && (!activeRecipe || activeRecipe.slug !== targetSlug)) {
       selectRecipe(targetSlug)
     }
@@ -152,7 +152,7 @@ export default function IngredientReview() {
                   requiredQuantity: item.requiredQuantity,
                   quantity: item.packOptimization?.packCount || 1,
                   product: item.product,
-                  image: item.product?.image,
+                  image: item.product?.image || item.ingredientImage,
                   bg: 'bg-cheese-bg',
                   category: item.ingredientCategory,
                   available: item.inventory?.inStock !== false,
@@ -181,7 +181,7 @@ export default function IngredientReview() {
                   requiredQuantity: item.requiredQuantity,
                   quantity: 0,
                   product: item.product,
-                  image: item.product?.image,
+                  image: item.product?.image || item.ingredientImage,
                   bg: 'bg-surface-container-low',
                   category: item.ingredientCategory,
                   available: true,
